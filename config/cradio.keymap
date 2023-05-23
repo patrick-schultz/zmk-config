@@ -34,18 +34,6 @@
     quick-tap-ms = <QUICK_TAP_MS>;
 };
 
-/* Mod morphs */
-
-ZMK_BEHAVIOR(comma_morph, mod_morph,
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-    bindings = <&kp COMMA>, <&kp SEMI>;
-)
-
-ZMK_BEHAVIOR(dot_morph, mod_morph,
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-    bindings = <&kp DOT>, <&kp COLON>;
-)
-
 /* Layers */
 
 #define COLEMAK 0
@@ -57,7 +45,7 @@ ZMK_BEHAVIOR(dot_morph, mod_morph,
 // activate FN layer by activating both EXT and SYM
 ZMK_CONDITIONAL_LAYER(EXT SYM, FN)
 
-// Homerow mods
+/* Homerow mods */
 
 ZMK_BEHAVIOR(hm_l, hold_tap,
   flavor = "balanced";
@@ -105,6 +93,18 @@ ZMK_BEHAVIOR(hm_shift_r, hold_tap,
 ZMK_COMBO(combo_bspc, &kp BSPC, RT1 RT2, ALL)
 ZMK_COMBO(combo_esc, &kp ESC, LT1 LT2, ALL)
 
+/* Mod morphs */
+
+ZMK_BEHAVIOR(comma_morph, mod_morph,
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+    bindings = <&kp COMMA>, <&kp SEMI>;
+)
+
+ZMK_BEHAVIOR(dot_morph, mod_morph,
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+    bindings = <&kp DOT>, <&kp COLON>;
+)
+
 // keymap
 
 ZMK_LAYER(default_layer,
@@ -113,9 +113,9 @@ ZMK_LAYER(default_layer,
 //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
     HRML(A,        R,         S,         T)     &kp G          &kp M      HRMR(N,        E,         I,        O)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-    &kp Z      &kp X      &kp C      &kp D      &kp V          &kp K      &kp H      &kp COMMA  &kp DOT    &kp FSLH
+    &kp Z      &kp X      &kp C      &kp D      &kp V          &kp K      &kp H    &comma_morph &dot_morph &kp FSLH
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                     &mo EXT    &kp LSHFT    &lt SYM SPACE  XXX 
+                                     &kp LSHFT  &mo EXT      &lt SYM SPACE &mo NUM 
 //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
 )
 
