@@ -86,7 +86,35 @@ ZMK_BEHAVIOR(hm_shift_r, hold_tap,
 #define HRML(k1,k2,k3,k4) &hm_l LCTRL k1  &hm_l LALT k2  &hm_l LCMD k3  &hm_shift_l LSHFT k4
 #define HRMR(k1,k2,k3,k4) &hm_shift_r RSHFT k1  &hm_r RCMD k2  &hm_r RALT k3  &hm_r RCTRL k4
 
-// combos
+/* Caps-word, num-word and smart-mouse */
+
+// tap: sticky-shift | shift + tap/ double-tap: caps-word | hold: shift
+ZMK_BEHAVIOR(smart_shft, mod_morph,
+    bindings = <&sk LSHFT>, <&caps_word>;
+    mods = <(MOD_LSFT)>;
+)
+&caps_word {  // mods deactivate caps-word, requires PR #1441
+    /delete-property/ ignore-modifiers;
+};
+
+// tap: num-word | double-tap: sticky num-layer | hold: num-layer
+#define SMART_NUM &smart_num NUM 0
+ZMK_BEHAVIOR(smart_num, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <LAYER_TAPPING_TERM>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&mo>, <&num_dance>;
+)
+ZMK_BEHAVIOR(num_dance, tap_dance,
+    tapping-term-ms = <LAYER_TAPPING_TERM>;
+    bindings = <&num_word>, <&sl NUM>;  // reverse this for sticky-num on single tap
+)
+&num_word {  // num-word, requires PR #1441
+    layers = <NUM>;
+    continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL>;
+};
+
+/* Combos */
 
 #undef COMBO_TERM
 #define COMBO_TERM 40
@@ -115,7 +143,7 @@ ZMK_LAYER(default_layer,
 //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
     &kp Z      &kp X      &kp C      &kp D      &kp V          &kp K      &kp H    &comma_morph &dot_morph &kp FSLH
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                     &kp LSHFT  &mo EXT      &lt SYM SPACE &mo NUM 
+                                   &smart_shft  &mo EXT      &lt SYM SPACE SMART_NUM 
 //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
 )
 
