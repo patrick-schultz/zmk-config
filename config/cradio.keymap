@@ -34,7 +34,19 @@
     quick-tap-ms = <QUICK_TAP_MS>;
 };
 
-// Layers
+/* Mod morphs */
+
+ZMK_BEHAVIOR(comma_morph, mod_morph,
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+    bindings = <&kp COMMA>, <&kp SEMI>;
+)
+
+ZMK_BEHAVIOR(dot_morph, mod_morph,
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+    bindings = <&kp DOT>, <&kp COLON>;
+)
+
+/* Layers */
 
 #define COLEMAK 0
 #define EXT 1
