@@ -1,0 +1,28 @@
+layout:
+  qmk_keyboard: ferris/sweep
+layers:
+  Base:
+    - [Q, W, F, P, {t: B, h: Num}, J, L, U, Y, "'"]
+    - [A, R, S, T, G, M, N, E, I, O]
+    - [Z, X, C, D, V, K, H, {t: ",", s: ";"}, {t: ".", s: ":"}, "/"]
+    - ["Smart Shift", Ext, {t: ␣, h: Sym}, "Smart Num"]
+  Ext:
+    - [null, null, null, Esc, null, ⇞, ⇱, ↑, ⇲, null]
+    - [⌃, ⌥, ⌘, ⇧, null, ⇟, ←, ↓, →, ⌦]
+    - [Undo, Cut, Copy, Paste, null, null, ⌫, ⇥, null, null]
+    - [{type: held}, null, {t: ⏎, h: Fn}, null]
+  Sym:
+    - ["`", "<", ">", "^", null, "&", "$", "[", "]", "%"]
+    - ["!", "-", "+", "=", "#", "|", ":", "(", ")", "?"]
+    - ["\\", "/", "*", "_", null, "~", ";", "{", "}", "@"]
+    - [Fn, null, {type: held}, null]
+  Fn:
+    - [null, Prev, "Play Pause", Next, Flash, Flash, F7, F8, F9, F12]
+    - [⌃, ⌥, ⌘, ⇧, Reset, Reset, F4, F5, F6, F11]
+    - [null, Mute, Vol Dn, Vol Up, null, null, F1, F2, F3, F10]
+    - [null, null, null, null]
+  Num:
+    - [null, null, null, null, {type: held}, "=", 7, 8, 9, null]
+    - [⌃, ⌥, ⌘, ⇧, null, "*", 4, 5, 6, "+"]
+    - [null, null, ⇥, ⌫, null, "/", 1, 2, 3, "-"]
+    - [null, null, null, null]
