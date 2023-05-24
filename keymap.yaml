@@ -4,18 +4,18 @@ layers:
   Base:
     - [Q, W, F, P, {t: B, h: Num}, J, L, U, Y, "'"]
     - [A, R, S, T, G, M, N, E, I, O]
-    - [Z, X, C, D, V, K, H, {t: ",", s: ";"}, {t: ".", s: ":"}, "/"]
+    - [Z, X, C, D, V, K, H, {t: ",", s: ";"}, {t: ".", s: ":"}, {t: "-", s: "_"}]
     - ["Smart Shift", Ext, {t: ␣, h: Sym}, "Smart Num"]
   Ext:
     - [null, null, null, Esc, null, ⇞, ⇱, ↑, ⇲, null]
     - [⌃, ⌥, ⌘, ⇧, null, ⇟, ←, ↓, →, ⌦]
     - [Undo, Cut, Copy, Paste, null, null, ⌫, ⇥, null, null]
-    - [{type: held}, null, {t: ⏎, h: Fn}, null]
+    - [null, {t: Ext, type: held}, {t: ⏎, h: Fn}, null]
   Sym:
     - ["`", "<", ">", "^", null, "&", "$", "[", "]", "%"]
     - ["!", "-", "+", "=", "#", "|", ":", "(", ")", "?"]
     - ["\\", "/", "*", "_", null, "~", ";", "{", "}", "@"]
-    - [Fn, null, {type: held}, null]
+    - [null, Fn, {t: Sym, type: held}, null]
   Fn:
     - [null, Prev, "Play Pause", Next, Flash, Flash, F7, F8, F9, F12]
     - [⌃, ⌥, ⌘, ⇧, Reset, Reset, F4, F5, F6, F11]
