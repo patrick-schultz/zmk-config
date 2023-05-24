@@ -114,6 +114,12 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
     continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL>;
 };
 
+// Alt+Tab swapper
+ZMK_BEHAVIOR(swapper, tri_state,
+    bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>;
+    ignored-key-positions = <LT2>;
+)
+
 /* Combos */
 
 #undef COMBO_TERM
@@ -171,13 +177,13 @@ ZMK_LAYER(num_layer,
 
 ZMK_LAYER(ext_layer,
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-    XXX        XXX        XXX        &kp ESC    XXX            &kp PG_UP  &kp HOME   &kp UP     &kp END    XXX 
+    XXX        XXX      &kp LS(TAB)  &swapper   XXX            &kp PG_UP  &kp HOME   &kp UP     &kp END    XXX 
 //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
     &kp LCTRL  &kp LALT   &kp LCMD   &kp LSHFT  XXX            &kp PG_DN  &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL
 //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
     &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  XXX            &none      &kp BSPC   &kp TAB    XXX        XXX 
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                     ___        ___          &lt SYM RET  ___   
+                                     ___        ___          &lt SYM RET &kp K_CANCEL   
 //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
 )
 
