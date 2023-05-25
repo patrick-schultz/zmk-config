@@ -132,8 +132,12 @@ ZMK_COMBO(combo_capsword, &caps_word, LM1 RM1, ALL)
 
 ZMK_BEHAVIOR(com_semi, mod_morph,
     mods = <(MOD_LSFT|MOD_RSFT)>;
-    bindings = <&kp COMMA>, <&kp SEMI>;
-    keep-mods = <0>; // why is this needed?
+    bindings = <&kp COMMA>, <&typeSemi>;
+)
+ZMK_BEHAVIOR(typeSemi, macro,
+    bindings = <&macro_release &kp LSHFT>
+            , <&macro_tap &kp SEMICOLON>
+            ;
 )
 
 ZMK_BEHAVIOR(dot_col, mod_morph,
