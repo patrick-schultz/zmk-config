@@ -124,8 +124,8 @@ ZMK_BEHAVIOR(swapper, tri_state,
 
 #undef COMBO_TERM
 #define COMBO_TERM 40
-ZMK_COMBO(combo_bspc, &kp BSPC, RT1 RT2, ALL)
-ZMK_COMBO(combo_esc, &kp ESC, LT1 LT2, ALL)
+ZMK_COMBO(combo_esc, &kp ESC, LM4 LM1, ALL)
+ZMK_COMBO(combo_tab, &kp TAB, LT4 LT3, ALL)
 ZMK_COMBO(combo_capsword, &caps_word, LM1 RM1, ALL)
 
 /* Mod morphs */
@@ -155,6 +155,11 @@ ZMK_BEHAVIOR(dunder, mod_morph,
     bindings = <&kp MINUS>, <&kp UNDER>;
 )
 
+ZMK_BEHAVIOR(bspc_del, mod_morph,
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+    bindings = <&kp BSPC>, <&kp DEL>;
+)
+
 // keymap
 
 ZMK_LAYER(default_layer,
@@ -165,7 +170,7 @@ ZMK_LAYER(default_layer,
 //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
     &kp Z      &kp X      &kp C      &kp D      &kp V          &kp K      &kp H     &com_semi   &dot_col   &dunder
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                   &smart_shft  &mo EXT      &lt SYM SPACE SMART_NUM 
+                                     &bspc_del  &mo EXT      &lt SYM SPACE SMART_NUM 
 //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
 )
 
