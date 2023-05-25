@@ -132,6 +132,7 @@ ZMK_COMBO(combo_esc, &kp ESC, LT1 LT2, ALL)
 ZMK_BEHAVIOR(com_semi, mod_morph,
     mods = <(MOD_LSFT|MOD_RSFT)>;
     bindings = <&kp COMMA>, <&kp SEMI>;
+    keep-mods = <0>;
 )
 
 ZMK_BEHAVIOR(dot_col, mod_morph,
