@@ -126,13 +126,14 @@ ZMK_BEHAVIOR(swapper, tri_state,
 #define COMBO_TERM 40
 ZMK_COMBO(combo_bspc, &kp BSPC, RT1 RT2, ALL)
 ZMK_COMBO(combo_esc, &kp ESC, LT1 LT2, ALL)
+ZMK_COMBO(combo_capsword, &caps_word, LM1 RM1, ALL)
 
 /* Mod morphs */
 
 ZMK_BEHAVIOR(com_semi, mod_morph,
     mods = <(MOD_LSFT|MOD_RSFT)>;
     bindings = <&kp COMMA>, <&kp SEMI>;
-    keep-mods = <0>;
+    keep-mods = <0>; // why is this needed?
 )
 
 ZMK_BEHAVIOR(dot_col, mod_morph,

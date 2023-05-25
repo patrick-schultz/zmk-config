@@ -3,6 +3,7 @@ layout:
 combos:
   - {p: [2, 3], k: Esc, l: [Base]}
   - {p: [6, 7], k: ⌫, l: [Base]}
+  - {p: [13, 16], k: "Capsword", l: [Base]}
 layers:
   Base:
     - [Q, W, F, P, {t: B, h: Num}, J, L, U, Y, "'"]
