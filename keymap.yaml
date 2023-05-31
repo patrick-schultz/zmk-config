@@ -32,7 +32,7 @@ layers:
     - [null, null, null, null]
 
     
-# Allen's layout
+# phbonachi's layout
 layout:
   qmk_keyboard: ferris/sweep
 combos:

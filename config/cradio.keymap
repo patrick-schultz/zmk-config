@@ -128,6 +128,17 @@ ZMK_COMBO(combo_esc, &kp ESC, LM4 LM1, ALL)
 ZMK_COMBO(combo_tab, &kp TAB, LT4 LT3, ALL)
 ZMK_COMBO(combo_capsword, &caps_word, LM1 RM1, ALL)
 
+ZMK_COMBO(combo_colon, &kp COLON, RT1 RT3, ALL)
+ZMK_COMBO(combo_excl, &kp EXCL, RT1 RT2, ALL)
+ZMK_COMBO(combo_qmark, &kp QMARK, RT2 RT3, ALL)
+ZMK_COMBO(combo_grave, &kp GRAVE, RT3 RT4, ALL)
+ZMK_COMBO(combo_at, &kp AT, RT0 RT1, ALL)
+ZMK_COMBO(combo_semi, &kp SEMI, RM0 RM1, ALL)
+ZMK_COMBO(combo_under, &kp UNDER, RB1 RB3, ALL)
+ZMK_COMBO(combo_equal, &kp EQUAL, RB2 RB3, ALL)
+ZMK_COMBO(combo_percent, &kp PRCNT, RB3 RB4, ALL)
+ZMK_COMBO(combo_tilde, &kp TILDE, RB0 RB4, ALL)
+
 /* Mod morphs */
 
 ZMK_BEHAVIOR(com_semi, mod_morph,
@@ -158,6 +169,12 @@ ZMK_BEHAVIOR(dunder, mod_morph,
 ZMK_BEHAVIOR(bspc_del, mod_morph,
     mods = <(MOD_LSFT|MOD_RSFT)>;
     bindings = <&kp BSPC>, <&kp DEL>;
+)
+
+ZMK_BEHAVIOR(esc_cancel, macro,
+    bindings = <&kp ESC>
+            , <&kp K_CANCEL>
+            ;
 )
 
 // keymap
