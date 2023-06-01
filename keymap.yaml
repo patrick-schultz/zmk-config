@@ -2,8 +2,18 @@ layout:
   qmk_keyboard: ferris/sweep
 combos:
   - {p: [0, 1], k: Tab, l: [Base]}
-  - {p: [10, 13], k: Esc, l: [Base]}
-  - {p: [13, 16], k: "Capsword", l: [Base]}
+  - {p: [10, 13], k: Esc, l: [Base], a: 'mid'}
+  - {p: [13, 16], k: "Capsword", l: [Base], a: 'top', o: 0.1}
+  - {p: [5, 6], k: '@', l: [Base]}
+  - {p: [6, 7], k: '!', l: [Base]}
+  - {p: [6, 8], k: ':', l: [Base], a: 'top', o: 0.5}
+  - {p: [7, 8], k: '?', l: [Base]}
+  - {p: [8, 9], k: '`', l: [Base]}
+  - {p: [15, 16], k: ';', l: [Base]}
+  - {p: [26, 28], k: '_', l: [Base], a: 'bottom'}
+  - {p: [26, 29], k: '~', l: [Base], a: 'bottom'}
+  - {p: [27, 28], k: '=', l: [Base]}
+  - {p: [28, 29], k: '%', l: [Base]}
 layers:
   Base:
     - [Q, W, F, P, {t: B, h: Num}, J, L, U, Y, "'"]
