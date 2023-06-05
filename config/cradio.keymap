@@ -36,7 +36,7 @@
 
 /* Layers */
 
-#define COLEMAK 0
+#define ALPHA 0
 #define NUM 1
 #define EXT 2
 #define SYM 3
@@ -124,36 +124,132 @@ ZMK_BEHAVIOR(swapper, tri_state,
 
 #undef COMBO_TERM
 #define COMBO_TERM 40
+
+ZMK_COMBO(combo_q, &kp Q, LT3 LT1, ALPHA)
+ZMK_COMBO(combo_z, &kp Z, LT4 LT3, ALPHA)
+
+ZMK_COMBO(combo_wh, &Wh, LT3 LT2, ALPHA)
+ZMK_COMBO(combo_gh, &Gh, LT2 LT1, ALPHA)
+ZMK_COMBO(combo_ght, &ght, LT3 LT2 LT1, ALPHA)
+ZMK_COMBO(combo_sh, &Sh, LM4 LM3, ALPHA)
+ZMK_COMBO(combo_sch, &Sch, LM4 LM3 LM2, ALPHA)
+ZMK_COMBO(combo_ch, &Ch, LM3 LM2, ALPHA)
+ZMK_COMBO(combo_th, &Th, LM2 LM1, ALPHA)
+ZMK_COMBO(combo_tch, &Tch, LM3 LM2 LM1, ALPHA)
+ZMK_COMBO(combo_ph, &Ph, LB3 LB2, ALPHA)
+
 ZMK_COMBO(combo_esc, &kp ESC, LM4 LM1, ALL)
 ZMK_COMBO(combo_tab, &kp TAB, LT4 LT3, ALL)
 ZMK_COMBO(combo_capsword, &caps_word, LM1 RM1, ALL)
 
-ZMK_COMBO(combo_colon, &kp COLON, RT1 RT3, ALL)
-ZMK_COMBO(combo_excl, &kp EXCL, RT1 RT2, ALL)
-ZMK_COMBO(combo_qmark, &kp QMARK, RT2 RT3, ALL)
-ZMK_COMBO(combo_grave, &kp GRAVE, RT3 RT4, ALL)
-ZMK_COMBO(combo_at, &kp AT, RT0 RT1, ALL)
-ZMK_COMBO(combo_semi, &kp SEMI, RM0 RM1, ALL)
-ZMK_COMBO(combo_under, &kp UNDER, RB1 RB3, ALL)
-ZMK_COMBO(combo_equal, &kp EQUAL, RB2 RB3, ALL)
-ZMK_COMBO(combo_percent, &kp PRCNT, RB3 RB4, ALL)
-ZMK_COMBO(combo_tilde, &kp TILDE, RB0 RB4, ALL)
+ZMK_COMBO(combo_colon, &kp COLON, RT1 RT3, ALPHA)
+ZMK_COMBO(combo_excl, &kp EXCL, RT1 RT2, ALPHA)
+ZMK_COMBO(combo_qmark, &kp QMARK, RT2 RT3, ALPHA)
+ZMK_COMBO(combo_grave, &kp GRAVE, RT3 RT4, ALPHA)
+ZMK_COMBO(combo_at, &kp AT, RT0 RT1, ALPHA)
+ZMK_COMBO(combo_semi, &kp SEMI, RM0 RM1, ALPHA)
+ZMK_COMBO(combo_under, &kp UNDER, RB1 RB3, ALPHA)
+ZMK_COMBO(combo_equal, &kp EQUAL, RB2 RB3, ALPHA)
+ZMK_COMBO(combo_percent, &kp PRCNT, RB3 RB4, ALPHA)
+ZMK_COMBO(combo_tilde, &kp TILDE, RB0 RB4, ALPHA)
+
+ZMK_BEHAVIOR(Wh, macro,
+    bindings = <&macro_tap &kp W>
+        , <&macro_release &kp LSHFT>
+        , <&macro_release &kp RSHFT>
+        , <&macro_tap &kp H>
+        ;
+)
+ZMK_BEHAVIOR(Gh, macro,
+    bindings = <&macro_tap &kp G>
+        , <&macro_release &kp LSHFT>
+        , <&macro_release &kp RSHFT>
+        , <&macro_tap &kp H>
+        ;
+)
+ZMK_BEHAVIOR(ght, macro,
+    bindings = <&kp G &kp H &kp T>;
+)
+ZMK_BEHAVIOR(Sh, macro,
+    bindings = <&macro_tap &kp S>
+        , <&macro_release &kp LSHFT>
+        , <&macro_release &kp RSHFT>
+        , <&macro_tap &kp H>
+        ;
+)
+ZMK_BEHAVIOR(Sch, macro,
+    bindings = <&macro_tap &kp S>
+        , <&macro_release &kp LSHFT>
+        , <&macro_release &kp RSHFT>
+        , <&macro_tap &kp C>
+        , <&macro_tap &kp H>
+        ;
+)
+ZMK_BEHAVIOR(Ch, macro,
+    bindings = <&macro_tap &kp C>
+        , <&macro_release &kp LSHFT>
+        , <&macro_release &kp RSHFT>
+        , <&macro_tap &kp H>
+        ;
+)
+ZMK_BEHAVIOR(Th, macro,
+    wait-ms = <10>;
+    tap-ms = <10>;
+    bindings = <&macro_tap &kp T>
+        , <&macro_release &kp LSHFT>
+        , <&macro_release &kp RSHFT>
+        , <&macro_tap &kp H>
+        ;
+)
+ZMK_BEHAVIOR(Tch, macro,
+    bindings = <&macro_tap &kp T>
+        , <&macro_release &kp LSHFT>
+        , <&macro_release &kp RSHFT>
+        , <&macro_tap &kp C>
+        , <&macro_tap &kp H>
+        ;
+)
+ZMK_BEHAVIOR(Ph, macro,
+    bindings = <&macro_tap &kp P>
+        , <&macro_release &kp LSHFT>
+        , <&macro_release &kp RSHFT>
+        , <&macro_tap &kp H>
+        ;
+)
 
 /* Mod morphs */
 
-ZMK_BEHAVIOR(com_semi, mod_morph,
+ZMK_BEHAVIOR(CmmaSemi, mod_morph,
     mods = <(MOD_LSFT|MOD_RSFT)>;
     bindings = <&kp COMMA>, <&typeSemi>;
 )
 ZMK_BEHAVIOR(typeSemi, macro,
     bindings = <&macro_release &kp LSHFT>
-            , <&macro_tap &kp SEMICOLON>
-            ;
+            , <&macro_tap &kp SEMICOLON>;
 )
-
-ZMK_BEHAVIOR(dot_col, mod_morph,
+ZMK_BEHAVIOR(DotColn, mod_morph,
     mods = <(MOD_LSFT|MOD_RSFT)>;
     bindings = <&kp DOT>, <&kp COLON>;
+)
+ZMK_BEHAVIOR(SlshStar, mod_morph,
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+    bindings = <&kp FSLH>, <&kp STAR>;
+)
+ZMK_BEHAVIOR(HashDllr, mod_morph,
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+    bindings = <&kp HASH>, <&kp DLLR>;
+)
+ZMK_BEHAVIOR(MinusPlus, mod_morph,
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+    bindings = <&kp MINUS>, <&kp PLUS>;
+)
+ZMK_BEHAVIOR(DqtLbkt, mod_morph,
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+    bindings = <&kp DQT>, <&kp LBKT>;
+)
+ZMK_BEHAVIOR(SqtRbkt, mod_morph,
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+    bindings = <&kp SQT>, <&kp RBKT>;
 )
 
 ZMK_BEHAVIOR(qexl, mod_morph,
@@ -181,13 +277,13 @@ ZMK_BEHAVIOR(esc_cancel, macro,
 
 ZMK_LAYER(default_layer,
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-    &kp Q      &kp W      &kp F      &kp P     &lt NUM B       &kp J      &kp L      &kp U      &kp Y      &kp SQT
+    &kp X      &kp W      &kp M      &kp G     &lt NUM J       &kp FSLH &DotColn  &SlshStar   &DqtLbkt   &SqtRbkt
 //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-    HRML(A,        R,         S,         T)     &kp G          &kp M      HRMR(N,        E,         I,        O)
+    HRML(S,        C,         N,         T)     &kp K         &CmmaSemi      HRMR(A,        E,         I,        H)
 //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-    &kp Z      &kp X      &kp C      &kp D      &kp V          &kp K      &kp H     &com_semi   &dot_col   &dunder
+    &kp B      &kp P      &kp L      &kp D      &kp V        &MinusPlus   &kp U      &kp O      &kp Y      &kp F
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                     &bspc_del  &mo EXT      &lt SYM SPACE &kp RET 
+                                   &smart_shft &lt EXT R     &lt SYM SPACE &bspc_del 
 //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
 )
 
