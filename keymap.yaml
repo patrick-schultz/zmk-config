@@ -16,10 +16,11 @@ combos:
   - {p: [28, 29], k: '%', l: [Base]}
 layers:
   Base:
-    - [Q, W, F, P, {t: B, h: Num}, J, L, U, Y, "'"]
-    - [{t: A, h: ⌃}, {t: R, h: ⌥}, {t: S, h: ⌘}, {t: T, h: ⇧}, G, M, {t: N, h: ⇧}, {t: E, h: ⌘}, {t: I, h: ⌥}, {t: O, h: ⌃}]
-    - [Z, X, C, D, V, K, H, {t: ",", s: ";"}, {t: ".", s: ":"}, {t: "-", s: "_"}]
-    - [{t: ⌫, s: ⌦}, Ext, {t: ␣, h: Sym}, "Smart Num"]
+    - [X, W, M, G, {t: J, h: Num}, {t: "#", s: "$"}, {t: ".", s: ":"}, {t: "/", s: "*"}, {t: '"', s: "["}, {t: "'", s: "]"}]
+
+    - [{t: S, h: ⌃}, {t: C, h: ⌥}, {t: N, h: ⌘}, {t: T, h: ⇧}, K, {t: ",", s: ";"}, {t: A, h: ⇧}, {t: E, h: ⌘}, {t: I, h: ⌥}, {t: H, h: ⌃}]
+    - [B, P, L, D, V, {t: "-", s: "+"}, U, O, Y, F]
+    - ["Smart Shift", {t: R, h: Ext}, {t: ␣, h: Sym}, Bsp]
   Ext:
     - [null, null, "Prev Win", "Next Win", null, ⇞, ⇱, ↑, ⇲, null]
     - [⌃, ⌥, ⌘, ⇧, null, ⇟, ←, ↓, →, ⌦]
