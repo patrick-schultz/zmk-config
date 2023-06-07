@@ -26,6 +26,7 @@
 
 &sl {  // sticky-layer config
     ignore-modifiers;          // allow chording sticky mods & layers
+    release-after-ms = <LAYER_TAPPING_TERM>;
 };
 
 &lt {  // layer-tap config
@@ -37,10 +38,14 @@
 /* Layers */
 
 #define ALPHA 0
-#define NUM 1
-#define EXT 2
-#define SYM 3
-#define FN 4
+#define l_akA 1
+#define l_akU 2
+#define l_akE 3
+#define l_akO 4
+#define NUM 5
+#define EXT 6
+#define SYM 7
+#define FN 8
 
 // activate FN layer by activating both EXT and SYM
 ZMK_CONDITIONAL_LAYER(EXT SYM, FN)
@@ -58,8 +63,8 @@ ZMK_CONDITIONAL_LAYER(EXT SYM, FN)
         hold-trigger-on-release; \
     )
 
-MAKE_HRM(hm_l, &kp, &kp, KEYS_R KEYS_T)
-MAKE_HRM(hm_r, &kp, &kp, KEYS_L KEYS_T)
+MAKE_HRM(hml, &kp, &kp, KEYS_R KEYS_T)
+MAKE_HRM(hmr, &kp, &kp, KEYS_L KEYS_T)
 
 ZMK_BEHAVIOR(hm_shift_l, hold_tap,
   flavor = "balanced";
@@ -69,16 +74,14 @@ ZMK_BEHAVIOR(hm_shift_l, hold_tap,
   bindings = <&kp>, <&kp>;
 )
 
-ZMK_BEHAVIOR(hm_shift_r, hold_tap,
+ZMK_BEHAVIOR(hrm_a, hold_tap,
   flavor = "balanced";
   tapping-term-ms = <HM_TAPPING_TERM_FAST>;
   quick-tap-ms = <QUICK_TAP_MS>; // repeat on tap-hold
   hold-trigger-key-positions = <KEYS_L KEYS_T>;
-  bindings = <&kp>, <&kp>;
+  bindings = <&kp>, <&ak_A>;
 )
-
-#define HRML(k1,k2,k3,k4) &hm_l LCTRL k1  &hm_l LALT k2  &hm_l LCMD k3  &hm_shift_l LSHFT k4
-#define HRMR(k1,k2,k3,k4) &hm_shift_r RSHFT k1  &hm_r RCMD k2  &hm_r RALT k3  &hm_r RCTRL k4
+MAKE_HRM(hrm_e, &kp, &ak_E, KEYS_L KEYS_T)
 
 /* Caps-word, num-word and smart-mouse */
 
@@ -117,40 +120,43 @@ ZMK_BEHAVIOR(swapper, tri_state,
 /* Combos */
 
 #undef COMBO_TERM
-#define COMBO_TERM 40
+#define COMBO_TERM 35
+#define COMBO_TERM_FAST 20
+#define COMBO_TERM_SLOW 35
+#define ALPHA_ALL ALPHA l_akA l_akE l_akO l_akU
 
-ZMK_COMBO(combo_q, &kp Q, LT3 LT1, ALPHA)
-ZMK_COMBO(combo_z, &kp Z, LT4 LT3, ALPHA)
+ZMK_COMBO(combo_q, &kp Q, LT3 LT1, ALPHA_ALL, COMBO_TERM_SLOW)
+ZMK_COMBO(combo_z, &kp Z, LT4 LT3, ALPHA_ALL, COMBO_TERM_SLOW)
 
-ZMK_COMBO(combo_wh, &Wh, LT3 LT2, ALPHA)
-ZMK_COMBO(combo_gh, &Gh, LT2 LT1, ALPHA)
-ZMK_COMBO(combo_ght, &ght, LT3 LT2 LT1, ALPHA)
+ZMK_COMBO(combo_wh, &Wh, LT3 LT2, ALPHA_ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_gh, &Gh, LT2 LT1, ALPHA_ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_ght, &ght, LT3 LT2 LT1, ALPHA_ALL, COMBO_TERM_FAST)
 MAKE_HRM(hm_sh, &kp, &Sh, KEYS_L KEYS_T)
-ZMK_COMBO(combo_sh, &hm_sh LC(LALT) 0, LM4 LM3, ALPHA)
+ZMK_COMBO(combo_sh, &hm_sh LC(LALT) 0, LM4 LM3, ALPHA_ALL, COMBO_TERM_FAST)
 MAKE_HRM(hm_sch, &kp, &Sch, KEYS_L KEYS_T)
-ZMK_COMBO(combo_sch, &hm_sch LC(LA(LCMD)) 0, LM4 LM3 LM2, ALPHA)
+ZMK_COMBO(combo_sch, &hm_sch LC(LA(LCMD)) 0, LM4 LM3 LM2, ALPHA_ALL, COMBO_TERM_FAST)
 MAKE_HRM(hm_ch, &kp, &Ch, KEYS_L KEYS_T)
-ZMK_COMBO(combo_ch, &hm_ch LA(LCMD) 0, LM3 LM2, ALPHA)
+ZMK_COMBO(combo_ch, &hm_ch LA(LCMD) 0, LM3 LM2, ALPHA_ALL, COMBO_TERM_FAST)
 MAKE_HRM(hm_th, &kp, &Th, KEYS_L KEYS_T)
-ZMK_COMBO(combo_th, &hm_th LG(LSHFT) 0, LM2 LM1, ALPHA)
+ZMK_COMBO(combo_th, &hm_th LG(LSHFT) 0, LM2 LM1, ALPHA_ALL, COMBO_TERM_FAST)
 MAKE_HRM(hm_tch, &kp, &Tch, KEYS_L KEYS_T)
-ZMK_COMBO(combo_tch, &hm_tch LA(LG(LSHFT)) 0, LM3 LM2 LM1, ALPHA)
-ZMK_COMBO(combo_ph, &Ph, LB3 LB2, ALPHA)
+ZMK_COMBO(combo_tch, &hm_tch LA(LG(LSHFT)) 0, LM3 LM2 LM1, ALPHA_ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_ph, &Ph, LB3 LB2, ALPHA, COMBO_TERM_FAST)
 
-ZMK_COMBO(combo_esc, &kp ESC, LM4 LM1, ALL)
-ZMK_COMBO(combo_tab, &kp TAB, LT4 LT3, ALL)
-ZMK_COMBO(combo_capsword, &caps_word, LM1 RM1, ALL)
+ZMK_COMBO(combo_esc, &kp ESC, LM4 LM1, ALL, COMBO_TERM_SLOW)
+ZMK_COMBO(combo_tab, &kp TAB, LT4 LT3, ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_capsword, &caps_word, LM1 RM1, ALL, COMBO_TERM_SLOW)
 
-ZMK_COMBO(combo_colon, &kp COLON, RT1 RT3, ALPHA)
-ZMK_COMBO(combo_excl, &kp EXCL, RT1 RT2, ALPHA)
-ZMK_COMBO(combo_qmark, &kp QMARK, RT2 RT3, ALPHA)
-ZMK_COMBO(combo_grave, &kp GRAVE, RT3 RT4, ALPHA)
-ZMK_COMBO(combo_at, &kp AT, RT0 RT1, ALPHA)
-ZMK_COMBO(combo_semi, &kp SEMI, RM0 RM1, ALPHA)
-ZMK_COMBO(combo_under, &kp UNDER, RB1 RB3, ALPHA)
-ZMK_COMBO(combo_equal, &kp EQUAL, RB2 RB3, ALPHA)
-ZMK_COMBO(combo_percent, &kp PRCNT, RB3 RB4, ALPHA)
-ZMK_COMBO(combo_tilde, &kp TILDE, RB0 RB4, ALPHA)
+ZMK_COMBO(combo_colon, &kp COLON, RT1 RT3, ALPHA_ALL, COMBO_TERM_SLOW)
+ZMK_COMBO(combo_excl, &kp EXCL, RT1 RT2, ALPHA_ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_qmark, &kp QMARK, RT2 RT3, ALPHA_ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_grave, &kp GRAVE, RT3 RT4, ALPHA_ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_at, &kp AT, RT0 RT1, ALPHA_ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_semi, &kp SEMI, RM0 RM1, ALPHA_ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_under, &kp UNDER, RB1 RB3, ALPHA_ALL, COMBO_TERM_SLOW)
+ZMK_COMBO(combo_equal, &kp EQUAL, RB2 RB3, ALPHA_ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_percent, &kp PRCNT, RB3 RB4, ALPHA_ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_tilde, &kp TILDE, RB0 RB4, ALPHA_ALL, COMBO_TERM_SLOW)
 
 ZMK_BEHAVIOR(Wh, macro,
     bindings = <&macro_tap &kp W>
@@ -192,8 +198,8 @@ ZMK_BEHAVIOR(Ch, macro,
         ;
 )
 ZMK_BEHAVIOR(Th, macro,
-    wait-ms = <10>;
-    tap-ms = <10>;
+//    wait-ms = <50>;
+//    tap-ms = <50>;
     bindings = <&macro_tap &kp T>
         , <&macro_release &kp LSHFT>
         , <&macro_release &kp RSHFT>
@@ -272,18 +278,53 @@ ZMK_BEHAVIOR(esc_cancel, macro,
             ;
 )
 
+#define AK(KEY) ZMK_BEHAVIOR(ak_##KEY, macro, bindings = <&macro_tap &kp KEY>, <&sl l_ak##KEY>;)
+
+AK(A)
+AK(U)
+AK(E)
+AK(O)
+
 // keymap
 
 ZMK_LAYER(default_layer,
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
     &kp X      &kp W      &kp M      &kp G     &lt NUM J       &kp FSLH   &DotColn  &SlshStar   &DqtLbkt   &SqtRbkt
 //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-    HRML(S,        C,         N,         T)     &kp K         &CmmaSemi   HRMR(A,        E,         I,        H)
+&hml LCTRL S &hml LALT C &hml LCMD N &hm_shift_l LSHFT T &kp K &CmmaSemi &hrm_a RSHFT A &hrm_e RCMD E &hmr RALT I &hmr RCTRL H
 //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-    &kp B      &kp P      &kp L      &kp D      &kp V        &MinusPlus   &kp U      &kp O      &kp Y      &kp F
+    &kp B      &kp P      &kp L      &kp D      &kp V        &MinusPlus   &ak_U      &ak_O      &kp Y      &kp F
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                    &smart_shft &lt EXT R     &lt SYM SPACE &bspc_del 
 //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+)
+
+ZMK_LAYER(l_akA,
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+___     ___     ___     ___     ___    ___     ___     ___     ___     &kp U
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+                        ___     ___    ___     ___
+)
+
+ZMK_LAYER(l_akU,
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+___     ___     ___     ___     ___    ___     ___     ___     ___     &kp A
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+                        ___     ___    ___     ___
+)
+
+ZMK_LAYER(l_akE,
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+___     ___     ___     ___     ___    ___     ___     ___     ___     &kp O
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+                        ___     ___    ___     ___
+)
+
+ZMK_LAYER(l_akO,
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+___     ___     ___     ___     ___    ___     ___     ___     ___     &kp E
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+                        ___     ___    ___     ___
 )
 
 ZMK_LAYER(num_layer,
