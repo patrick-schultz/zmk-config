@@ -128,9 +128,9 @@ ZMK_BEHAVIOR(swapper, tri_state,
 /* Combos */
 
 #undef COMBO_TERM
-#define COMBO_TERM 35
-#define COMBO_TERM_FAST 20
-#define COMBO_TERM_SLOW 35
+#define COMBO_TERM 40
+#define COMBO_TERM_FAST 25
+#define COMBO_TERM_SLOW 40
 #define ALPHA_ALL ALPHA l_akA l_akE l_akO l_akU
 
 ZMK_COMBO(combo_q, &kp Q, LT3 LT1, ALPHA_ALL, COMBO_TERM_SLOW)
