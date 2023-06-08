@@ -206,8 +206,8 @@ ZMK_BEHAVIOR(Ch, macro,
         ;
 )
 ZMK_BEHAVIOR(Th, macro,
-//    wait-ms = <50>;
-//    tap-ms = <50>;
+    wait-ms = <10>;
+    tap-ms = <10>;
     bindings = <&macro_tap &kp T>
         , <&macro_release &kp LSHFT>
         , <&macro_release &kp RSHFT>
