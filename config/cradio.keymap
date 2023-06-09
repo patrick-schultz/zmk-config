@@ -166,68 +166,63 @@ ZMK_COMBO(combo_equal, &kp EQUAL, RB2 RB3, ALPHA_ALL, COMBO_TERM_FAST)
 ZMK_COMBO(combo_percent, &kp PRCNT, RB3 RB4, ALPHA_ALL, COMBO_TERM_SLOW)
 ZMK_COMBO(combo_tilde, &kp TILDE, RB0 RB4, ALPHA_ALL, COMBO_TERM_SLOW)
 
-ZMK_BEHAVIOR(Wh, macro,
-    bindings = <&macro_tap &kp W>
-        , <&macro_release &kp LSHFT>
-        , <&macro_release &kp RSHFT>
-        , <&macro_tap &kp H>
-        ;
+#define ZMK_MACRO_FAST(NAME, ...) \
+    ZMK_BEHAVIOR(NAME, macro, \
+        wait-ms = <1>; \
+        tap-ms = <1>; \
+        bindings = __VA_ARGS__ ; \
+    )
+    
+ZMK_MACRO_FAST(Wh,
+    <&macro_tap &kp W>
+    , <&macro_release &kp LSHFT>
+    , <&macro_release &kp RSHFT>
+    , <&macro_tap &kp H>
 )
-ZMK_BEHAVIOR(Gh, macro,
-    bindings = <&macro_tap &kp G>
-        , <&macro_release &kp LSHFT>
-        , <&macro_release &kp RSHFT>
-        , <&macro_tap &kp H>
-        ;
+ZMK_MACRO_FAST(Gh,
+    <&macro_tap &kp G>
+    , <&macro_release &kp LSHFT>
+    , <&macro_release &kp RSHFT>
+    , <&macro_tap &kp H>
 )
-ZMK_BEHAVIOR(ght, macro,
-    bindings = <&kp G &kp H &kp T>;
+ZMK_MACRO_FAST(ght, <&kp G &kp H &kp T>)
+ZMK_MACRO_FAST(Sh,
+    <&macro_tap &kp S>
+    , <&macro_release &kp LSHFT>
+    , <&macro_release &kp RSHFT>
+    , <&macro_tap &kp H>
 )
-ZMK_BEHAVIOR(Sh, macro,
-    bindings = <&macro_tap &kp S>
-        , <&macro_release &kp LSHFT>
-        , <&macro_release &kp RSHFT>
-        , <&macro_tap &kp H>
-        ;
+ZMK_MACRO_FAST(Sch,
+    <&macro_tap &kp S>
+    , <&macro_release &kp LSHFT>
+    , <&macro_release &kp RSHFT>
+    , <&macro_tap &kp C>
+    , <&macro_tap &kp H>
 )
-ZMK_BEHAVIOR(Sch, macro,
-    bindings = <&macro_tap &kp S>
-        , <&macro_release &kp LSHFT>
-        , <&macro_release &kp RSHFT>
-        , <&macro_tap &kp C>
-        , <&macro_tap &kp H>
-        ;
+ZMK_MACRO_FAST(Ch,
+    <&macro_tap &kp C>
+    , <&macro_release &kp LSHFT>
+    , <&macro_release &kp RSHFT>
+    , <&macro_tap &kp H>
 )
-ZMK_BEHAVIOR(Ch, macro,
-    bindings = <&macro_tap &kp C>
-        , <&macro_release &kp LSHFT>
-        , <&macro_release &kp RSHFT>
-        , <&macro_tap &kp H>
-        ;
+ZMK_MACRO_FAST(Th,
+    <&macro_tap &kp T>
+    , <&macro_release &kp LSHFT>
+    , <&macro_release &kp RSHFT>
+    , <&macro_tap &kp H>
 )
-ZMK_BEHAVIOR(Th, macro,
-    wait-ms = <10>;
-    tap-ms = <10>;
-    bindings = <&macro_tap &kp T>
-        , <&macro_release &kp LSHFT>
-        , <&macro_release &kp RSHFT>
-        , <&macro_tap &kp H>
-        ;
+ZMK_MACRO_FAST(Tch,
+    <&macro_tap &kp T>
+    , <&macro_release &kp LSHFT>
+    , <&macro_release &kp RSHFT>
+    , <&macro_tap &kp C>
+    , <&macro_tap &kp H>
 )
-ZMK_BEHAVIOR(Tch, macro,
-    bindings = <&macro_tap &kp T>
-        , <&macro_release &kp LSHFT>
-        , <&macro_release &kp RSHFT>
-        , <&macro_tap &kp C>
-        , <&macro_tap &kp H>
-        ;
-)
-ZMK_BEHAVIOR(Ph, macro,
-    bindings = <&macro_tap &kp P>
-        , <&macro_release &kp LSHFT>
-        , <&macro_release &kp RSHFT>
-        , <&macro_tap &kp H>
-        ;
+ZMK_MACRO_FAST(Ph,
+    <&macro_tap &kp P>
+    , <&macro_release &kp LSHFT>
+    , <&macro_release &kp RSHFT>
+    , <&macro_tap &kp H>
 )
 
 /* Mod morphs */
@@ -297,7 +292,7 @@ AK(O)
 
 ZMK_LAYER(default_layer,
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-    &kp X      &kp W      &kp M      &kp G     &lt NUM J       &kp FSLH   &DotColn  &SlshStar   &DqtLbkt   &SqtRbkt
+    &kp X      &kp W      &kp M      &kp G     &lt NUM J      &HashDllr   &DotColn  &SlshStar   &DqtLbkt   &SqtRbkt
 //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
 &hml LCTRL S &hml LALT C &hml LCMD N &hm_shift_l LSHFT T &kp K &CmmaSemi &hm_shift_r RSHFT A &hmr RCMD E &hmr RALT I &hmr RCTRL H
 //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
