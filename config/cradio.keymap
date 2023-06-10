@@ -168,8 +168,8 @@ ZMK_COMBO(combo_tilde, &kp TILDE, RB0 RB4, ALPHA_ALL, COMBO_TERM_SLOW)
 
 #define ZMK_MACRO_FAST(NAME, ...) \
     ZMK_BEHAVIOR(NAME, macro, \
-        wait-ms = <1>; \
-        tap-ms = <1>; \
+        wait-ms = <0>; \
+        tap-ms = <0>; \
         bindings = __VA_ARGS__ ; \
     )
     
@@ -281,7 +281,7 @@ ZMK_BEHAVIOR(esc_cancel, macro,
             ;
 )
 
-#define AK(KEY) ZMK_BEHAVIOR(ak_##KEY, macro, bindings = <&macro_tap &kp KEY>, <&sl l_ak##KEY>;)
+#define AK(KEY) ZMK_MACRO_FAST(ak_##KEY, <&macro_tap &kp KEY>, <&sl l_ak##KEY>)
 
 AK(A)
 AK(U)
@@ -294,9 +294,9 @@ ZMK_LAYER(default_layer,
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
     &kp X      &kp W      &kp M      &kp G     &lt NUM J      &HashDllr   &DotColn  &SlshStar   &DqtLbkt   &SqtRbkt
 //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-&hml LCTRL S &hml LALT C &hml LCMD N &hm_shift_l LSHFT T &kp K &CmmaSemi &hm_shift_r RSHFT A &hmr RCMD E &hmr RALT I &hmr RCTRL H
+&hml LCTRL S &hml LALT C &hml LCMD N &hm_shift_l LSHFT T &kp K &CmmaSemi &hrm_a RSHFT A &hrm_e RCMD E &hmr RALT I &hmr RCTRL H
 //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-    &kp B      &kp P      &kp L      &kp D      &kp V        &MinusPlus   &kp U      &kp O      &kp Y      &kp F
+    &kp B      &kp P      &kp L      &kp D      &kp V        &MinusPlus   &ak_U      &ak_O      &kp Y      &kp F
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                    &smart_shft &lt EXT R     &lt SYM SPACE &kp ESC 
 //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
