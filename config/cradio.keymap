@@ -17,6 +17,7 @@
 #define HM_TAPPING_TERM 280
 #define HM_TAPPING_TERM_FAST 200
 #define LAYER_TAPPING_TERM 200
+#define AK_TAPPING_TERM 100
 #define QUICK_TAP_MS 175
 
 &sk {  // sticky-key config
@@ -26,7 +27,6 @@
 
 &sl {  // sticky-layer config
     ignore-modifiers;          // allow chording sticky mods & layers
-    release-after-ms = <LAYER_TAPPING_TERM>;
 };
 
 &lt {  // layer-tap config
@@ -281,7 +281,14 @@ ZMK_BEHAVIOR(esc_cancel, macro,
             ;
 )
 
-#define AK(KEY) ZMK_MACRO_FAST(ak_##KEY, <&macro_tap &kp KEY>, <&sl l_ak##KEY>)
+/* Adaptive Keys */
+
+ZMK_BEHAVIOR(ak, sticky_key,
+    bindings = <&mo>;
+    release-after-ms = <AK_TAPPING_TERM>;
+    quick-release;
+)
+#define AK(KEY) ZMK_MACRO_FAST(ak_##KEY, <&macro_tap &kp KEY>, <&ak l_ak##KEY>)
 
 AK(A)
 AK(U)
