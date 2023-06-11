@@ -129,7 +129,7 @@ ZMK_BEHAVIOR(swapper, tri_state,
 
 #undef COMBO_TERM
 #define COMBO_TERM 40
-#define COMBO_TERM_FAST 25
+#define COMBO_TERM_FAST 30
 #define COMBO_TERM_SLOW 40
 #define ALPHA_ALL ALPHA l_akA l_akE l_akO l_akU
 
@@ -288,6 +288,7 @@ ZMK_BEHAVIOR(ak, sticky_key,
     release-after-ms = <AK_TAPPING_TERM>;
     quick-release;
 )
+// todo: make macro activate layer while held, then hit sticky key on release
 #define AK(KEY) ZMK_MACRO_FAST(ak_##KEY, <&macro_tap &kp KEY>, <&ak l_ak##KEY>)
 
 AK(A)
