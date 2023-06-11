@@ -175,53 +175,43 @@ ZMK_COMBO(combo_tilde, &kp TILDE, RB0 RB4, ALPHA_ALL, COMBO_TERM_SLOW)
     
 ZMK_MACRO_FAST(Wh,
     <&macro_tap &kp W>
-    , <&macro_release &kp LSHFT>
-    , <&macro_release &kp RSHFT>
+    , <&macro_release &kp LSHFT &kp RSHFT>
     , <&macro_tap &kp H>
 )
 ZMK_MACRO_FAST(Gh,
     <&macro_tap &kp G>
-    , <&macro_release &kp LSHFT>
-    , <&macro_release &kp RSHFT>
+    , <&macro_release &kp LSHFT &kp RSHFT>
     , <&macro_tap &kp H>
 )
 ZMK_MACRO_FAST(ght, <&kp G &kp H &kp T>)
 ZMK_MACRO_FAST(Sh,
     <&macro_tap &kp S>
-    , <&macro_release &kp LSHFT>
-    , <&macro_release &kp RSHFT>
+    , <&macro_release &kp LSHFT &kp RSHFT>
     , <&macro_tap &kp H>
 )
 ZMK_MACRO_FAST(Sch,
     <&macro_tap &kp S>
-    , <&macro_release &kp LSHFT>
-    , <&macro_release &kp RSHFT>
-    , <&macro_tap &kp C>
-    , <&macro_tap &kp H>
+    , <&macro_release &kp LSHFT &kp RSHFT>
+    , <&macro_tap &kp C &kp H>
 )
 ZMK_MACRO_FAST(Ch,
     <&macro_tap &kp C>
-    , <&macro_release &kp LSHFT>
-    , <&macro_release &kp RSHFT>
+    , <&macro_release &kp LSHFT &kp RSHFT>
     , <&macro_tap &kp H>
 )
 ZMK_MACRO_FAST(Th,
     <&macro_tap &kp T>
-    , <&macro_release &kp LSHFT>
-    , <&macro_release &kp RSHFT>
+    , <&macro_release &kp LSHFT &kp RSHFT>
     , <&macro_tap &kp H>
 )
 ZMK_MACRO_FAST(Tch,
     <&macro_tap &kp T>
-    , <&macro_release &kp LSHFT>
-    , <&macro_release &kp RSHFT>
-    , <&macro_tap &kp C>
-    , <&macro_tap &kp H>
+    , <&macro_release &kp LSHFT &kp RSHFT>
+    , <&macro_tap &kp C &kp H>
 )
 ZMK_MACRO_FAST(Ph,
     <&macro_tap &kp P>
-    , <&macro_release &kp LSHFT>
-    , <&macro_release &kp RSHFT>
+    , <&macro_release &kp LSHFT &kp RSHFT>
     , <&macro_tap &kp H>
 )
 
@@ -276,9 +266,7 @@ ZMK_BEHAVIOR(bspc_del, mod_morph,
 )
 
 ZMK_BEHAVIOR(esc_cancel, macro,
-    bindings = <&kp ESC>
-            , <&kp K_CANCEL>
-            ;
+    bindings = <&kp ESC &kp K_CANCEL>;
 )
 
 /* Adaptive Keys */
