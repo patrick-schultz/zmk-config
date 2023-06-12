@@ -1,8 +1,16 @@
 layout:
   qmk_keyboard: ferris/sweep
 combos:
-  - {p: [0, 1], k: Tab, l: [Base]}
-  - {p: [10, 13], k: Esc, l: [Base], a: 'mid'}
+  - {p: [0, 1], k: Z, l: [Base]}
+  - {p: [1, 3], k: Q, l: [Base]}
+  - {p: [1, 2], k: Wh, l: [Base]}
+  - {p: [2, 3], k: Gh, l: [Base]}
+  - {p: [1, 2, 3], k: Ght, l: [Base], a: 'top'}
+  - {p: [10, 11], k: Sh, l: [Base]}
+  - {p: [10, 11, 12], k: Sch, l: [Base], a: 'bottom'}
+  - {p: [11, 12], k: Ch, l: [Base]}
+  - {p: [11, 12, 13], k: Tch, l: [Base], a: 'bottom'}
+  - {p: [12, 13], k: Th, l: [Base]}
   - {p: [13, 16], k: "Capsword", l: [Base], a: 'top', o: 0.1}
   - {p: [5, 6], k: '@', l: [Base]}
   - {p: [6, 7], k: '!', l: [Base]}
@@ -20,9 +28,9 @@ layers:
 
     - [{t: S, h: ⌃}, {t: C, h: ⌥}, {t: N, h: ⌘}, {t: T, h: ⇧}, K, {t: ",", s: ";"}, {t: A, h: ⇧}, {t: E, h: ⌘}, {t: I, h: ⌥}, {t: H, h: ⌃}]
     - [B, P, L, D, V, {t: "-", s: "+"}, U, O, Y, F]
-    - ["Smart Shift", {t: R, h: Ext}, {t: ␣, h: Sym}, Bsp]
+    - ["Smart Shift", {t: R, h: Ext}, {t: ␣, h: Sym}, Esc]
   Ext:
-    - [null, null, "Prev Win", "Next Win", null, ⇞, ⇱, ↑, ⇲, null]
+    - [null, null, "Prev Win", "Next Win", "Smart Num", ⇞, ⇱, ↑, ⇲, null]
     - [⌃, ⌥, ⌘, ⇧, null, ⇟, ←, ↓, →, ⌦]
     - [Undo, Cut, Copy, Paste, null, null, ⌫, ⇥, null, null]
     - [null, {t: Ext, type: held}, {t: ⏎, h: Fn}, Cancel]

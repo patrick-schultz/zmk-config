@@ -38,14 +38,16 @@
 /* Layers */
 
 #define ALPHA 0
-#define l_akA 1
-#define l_akU 2
-#define l_akE 3
-#define l_akO 4
-#define NUM 5
-#define EXT 6
-#define SYM 7
-#define FN 8
+#define l_akG 1
+#define l_akM 2
+#define l_akA 3
+#define l_akU 4
+#define l_akE 5
+#define l_akO 6
+#define NUM 7
+#define EXT 8
+#define SYM 9
+#define FN 10
 
 // activate FN layer by activating both EXT and SYM
 ZMK_CONDITIONAL_LAYER(EXT SYM, FN)
@@ -284,16 +286,20 @@ ZMK_BEHAVIOR(ak, sticky_key,
     <&macro_release &mo l_ak##KEY>, \
     <&ak l_ak##KEY>)
 
+AK(G)
+AK(M)
 AK(A)
 AK(U)
 AK(E)
 AK(O)
 
+ZMK_MACRO_FAST(ak_lg, <&kp BSPC &kp L &kp G>)
+
 // keymap
 
 ZMK_LAYER(default_layer,
 //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-    &kp X      &kp W      &kp M      &kp G     &lt NUM J      &HashDllr   &DotColn  &SlshStar   &DqtLbkt   &SqtRbkt
+    &kp X      &kp W      &ak_M      &ak_G     &lt NUM J      &HashDllr   &DotColn  &SlshStar   &DqtLbkt   &SqtRbkt
 //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
 &hml LCTRL S &hml LALT C &hml LCMD N &hm_shift_l LSHFT T &kp K &CmmaSemi &hrm_a RSHFT A &hrm_e RCMD E &hmr RALT I &hmr RCTRL H
 //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
@@ -301,6 +307,20 @@ ZMK_LAYER(default_layer,
 //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                    &smart_shft &lt EXT R     &lt SYM SPACE &kp ESC 
 //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+)
+
+ZMK_LAYER(l_akG,
+___     ___     &kp L   ___     ___    ___     ___     ___     ___     ___
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+                        ___     ___    ___     ___
+)
+
+ZMK_LAYER(l_akM,
+___     ___     ___     &ak_lg  ___    ___     ___     ___     ___     ___
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+                        ___     ___    ___     ___
 )
 
 ZMK_LAYER(l_akA,
