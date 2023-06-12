@@ -154,7 +154,7 @@ MAKE_HRM(hm_tch, &kp, &Tch, KEYS_L KEYS_T)
 ZMK_COMBO(combo_tch, &hm_tch LA(LG(LSHFT)) 0, LM3 LM2 LM1, ALPHA_ALL, COMBO_TERM_SLOW)
 ZMK_COMBO(combo_ph, &Ph, LB3 LB2, ALPHA, COMBO_TERM_FAST)
 
-ZMK_COMBO(combo_esc, &kp ESC, LM4 LM1, ALL, COMBO_TERM_SLOW)
+// ZMK_COMBO(combo_esc, &kp ESC, LM4 LM1, ALL, COMBO_TERM_SLOW)
 // ZMK_COMBO(combo_tab, &kp TAB, LT4 LT3, ALL, COMBO_TERM_FAST)
 ZMK_COMBO(combo_capsword, &caps_word, LM1 RM1, ALL, COMBO_TERM_SLOW)
 
