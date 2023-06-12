@@ -18,6 +18,7 @@
 #define HM_TAPPING_TERM_FAST 200
 #define LAYER_TAPPING_TERM 200
 #define AK_TAPPING_TERM 40
+#define LK_TAPPING_TERM 200
 #define QUICK_TAP_MS 175
 
 &sk {  // sticky-key config
@@ -135,7 +136,7 @@ ZMK_BEHAVIOR(swapper, tri_state,
 #define COMBO_TERM_SLOW 40
 #define ALPHA_ALL ALPHA l_akA l_akE l_akO l_akU
 
-ZMK_COMBO(combo_q, &kp Q, LT3 LT1, ALPHA_ALL, 60)
+ZMK_COMBO(combo_qu, &lk_qu Q 0, LT3 LT1, ALPHA_ALL, 60)
 ZMK_COMBO(combo_z, &kp Z, LT4 LT3, ALPHA_ALL, COMBO_TERM_SLOW)
 
 ZMK_COMBO(combo_wh, &Wh, LT3 LT2, ALPHA_ALL, COMBO_TERM_FAST)
@@ -294,6 +295,21 @@ AK(E)
 AK(O)
 
 ZMK_MACRO_FAST(ak_lg, <&kp BSPC &kp L &kp G>)
+
+/* Linger Keys */
+
+#define LK(NAME, HOLD, TAP) ZMK_BEHAVIOR(NAME, hold_tap, \
+    flavor = "tap-preferred"; \
+    tapping-term-ms = <LK_TAPPING_TERM>; \
+    bindings = <HOLD>, <TAP>; \
+)
+
+ZMK_MACRO_FAST(Qu,
+    <&macro_tap &kp Q>
+    , <&macro_release &kp LSHFT &kp RSHFT>
+    , <&macro_tap &kp U>
+)
+LK(lk_qu, &kp, &Qu)
 
 // keymap
 
