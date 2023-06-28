@@ -136,7 +136,7 @@ ZMK_BEHAVIOR(swapper, tri_state,
 #define COMBO_TERM_SLOW 40
 #define ALPHA_ALL ALPHA l_akA l_akE l_akO l_akU
 
-ZMK_COMBO(combo_qu, &lk_qu Q 0, LT3 LT1, ALPHA_ALL, 70)
+ZMK_COMBO(combo_qu, &lk_qu Q Q, LT3 LT1, ALPHA_ALL, 70)
 ZMK_COMBO(combo_z, &kp Z, LT4 LT3, ALPHA_ALL, COMBO_TERM_SLOW)
 
 ZMK_COMBO(combo_wh, &Wh, LT3 LT2, ALPHA_ALL, COMBO_TERM_FAST)
@@ -309,7 +309,13 @@ ZMK_MACRO_FAST(Qu,
     , <&macro_release &kp LSHFT &kp RSHFT>
     , <&macro_tap &kp U>
 )
-LK(lk_qu, &kp, &Qu)
+// LK(lk_qu, &kp, &Qu)
+// only add the 'u' when rolling onto another key
+ZMK_BEHAVIOR(lk_qu, hold_tap,
+    flavor = "hold-preferred";
+    tapping-term-ms = <500>;
+    bindings = <&Qu>, <&kp>;
+)
 
 // keymap
 
