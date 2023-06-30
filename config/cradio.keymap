@@ -311,8 +311,9 @@ ZMK_MACRO_FAST(Qu,
 )
 // LK(lk_qu, &kp, &Qu)
 // only add the 'u' when rolling onto another key
+// FIXME: not working
 ZMK_BEHAVIOR(lk_qu, hold_tap,
-    flavor = "hold-preferred";
+    flavor = "tap-unless-interrupted";
     tapping-term-ms = <500>;
     bindings = <&Qu>, <&kp>;
 )
