@@ -137,38 +137,64 @@ ZMK_BEHAVIOR(swapper, tri_state,
 #define COMBO_TERM_SLOW 40
 #define ALPHA_ALL ALPHA l_akA l_akE l_akO l_akU
 
-ZMK_COMBO(combo_qu, &lk_qu Q Q, LT3 LT1, ALPHA_ALL, 70)
-ZMK_COMBO(combo_z, &kp Z, LT4 LT3, ALPHA_ALL, COMBO_TERM_SLOW)
+// h-digraph combos
 
-ZMK_COMBO(combo_wh, &Wh, LT3 LT2, ALPHA_ALL, COMBO_TERM_FAST)
-ZMK_COMBO(combo_gh, &Gh, LT2 LT1, ALPHA_ALL, COMBO_TERM_FAST)
-ZMK_COMBO(combo_ght, &ght, LT3 LT2 LT1, ALPHA_ALL, COMBO_TERM_SLOW)
+ZMK_COMBO(combo_wh, &Wh,                       LT3 LT2,     ALPHA_ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_gh, &Gh,                       LT2 LT1,     ALPHA_ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_ght, &ght,                     LT3 LT2 LT1, ALPHA_ALL, COMBO_TERM_SLOW)
 MAKE_HRM(hm_sh, &kp, &Sh, KEYS_L KEYS_T)
-ZMK_COMBO(combo_sh, &hm_sh LC(LALT) 0, LM4 LM3, ALPHA_ALL, COMBO_TERM_SLOW)
+ZMK_COMBO(combo_sh, &hm_sh LC(LALT) 0,         LM4 LM3,     ALPHA_ALL, COMBO_TERM_SLOW)
 MAKE_HRM(hm_sch, &kp, &Sch, KEYS_L KEYS_T)
-ZMK_COMBO(combo_sch, &hm_sch LC(LA(LCMD)) 0, LM4 LM3 LM2, ALPHA_ALL, COMBO_TERM_SLOW)
+ZMK_COMBO(combo_sch, &hm_sch LC(LA(LCMD)) 0,   LM4 LM3 LM2, ALPHA_ALL, COMBO_TERM_SLOW)
 MAKE_HRM(hm_ch, &kp, &Ch, KEYS_L KEYS_T)
-ZMK_COMBO(combo_ch, &hm_ch LA(LCMD) 0, LM3 LM2, ALPHA_ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_ch, &hm_ch LA(LCMD) 0,         LM3 LM2,     ALPHA_ALL, COMBO_TERM_FAST)
 MAKE_HRM(hm_th, &kp, &Th, KEYS_L KEYS_T)
-ZMK_COMBO(combo_th, &hm_th LG(LSHFT) 0, LM2 LM1, ALPHA_ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_th, &hm_th LG(LSHFT) 0,        LM2 LM1,     ALPHA_ALL, COMBO_TERM_FAST)
 MAKE_HRM(hm_tch, &kp, &Tch, KEYS_L KEYS_T)
-ZMK_COMBO(combo_tch, &hm_tch LA(LG(LSHFT)) 0, LM3 LM2 LM1, ALPHA_ALL, COMBO_TERM_SLOW)
-ZMK_COMBO(combo_ph, &Ph, LB3 LB2, ALPHA, COMBO_TERM_FAST)
+ZMK_COMBO(combo_tch, &hm_tch LA(LG(LSHFT)) 0,  LM3 LM2 LM1, ALPHA_ALL, COMBO_TERM_SLOW)
+ZMK_COMBO(combo_ph, &Ph,                       LB3 LB2,     ALPHA_ALL, COMBO_TERM_FAST)
 
-// ZMK_COMBO(combo_esc, &kp ESC, LM4 LM1, ALL, COMBO_TERM_SLOW)
-// ZMK_COMBO(combo_tab, &kp TAB, LT4 LT3, ALL, COMBO_TERM_FAST)
-ZMK_COMBO(combo_capsword, &caps_word, LM1 RM1, ALL, COMBO_TERM_SLOW)
+// nav combos
 
-ZMK_COMBO(combo_colon, &kp COLON, RT1 RT3, ALPHA_ALL, COMBO_TERM_SLOW)
-ZMK_COMBO(combo_excl, &kp EXCL, RT1 RT2, ALPHA_ALL, COMBO_TERM_FAST)
-ZMK_COMBO(combo_qmark, &kp QMARK, RT2 RT3, ALPHA_ALL, COMBO_TERM_FAST)
-ZMK_COMBO(combo_grave, &kp GRAVE, RT3 RT4, ALPHA_ALL, COMBO_TERM_SLOW)
-ZMK_COMBO(combo_at, &kp AT, RT0 RT1, ALPHA_ALL, COMBO_TERM_FAST)
-ZMK_COMBO(combo_semi, &kp SEMI, RM0 RM1, ALPHA_ALL, COMBO_TERM_FAST)
-ZMK_COMBO(combo_under, &kp UNDER, RB1 RB3, ALPHA_ALL, COMBO_TERM_SLOW)
-ZMK_COMBO(combo_equal, &kp EQUAL, RB2 RB3, ALPHA_ALL, COMBO_TERM_FAST)
-ZMK_COMBO(combo_percent, &kp PRCNT, RB3 RB4, ALPHA_ALL, COMBO_TERM_SLOW)
-ZMK_COMBO(combo_tilde, &kp TILDE, RB0 RB4, ALPHA_ALL, COMBO_TERM_SLOW)
+// ZMK_COMBO(combo_esc, &kp ESC,       LM4 LM1, ALL, COMBO_TERM_SLOW)
+// ZMK_COMBO(combo_tab, &kp TAB,       LT4 LT3, ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_capsword, &caps_word,  LM1 RM1, ALL, COMBO_TERM_SLOW)
+
+// glyph combos
+
+ZMK_COMBO(combo_qu, &lk_qu Q Q,      LT3 LT1, ALPHA_ALL, 70)
+ZMK_COMBO(combo_z, &kp Z,            LT4 LT3, ALPHA_ALL, COMBO_TERM_SLOW)
+
+ZMK_COMBO(combo_colon, &kp COLON,    RT1 RT3, ALPHA_ALL, COMBO_TERM_SLOW)
+ZMK_COMBO(combo_excl, &kp EXCL,      RT1 RT2, ALPHA_ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_qmark, &kp QMARK,    RT2 RT3, ALPHA_ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_grave, &kp GRAVE,    RT3 RT4, ALPHA_ALL, COMBO_TERM_SLOW)
+ZMK_COMBO(combo_at, &kp AT,          RT0 RT1, ALPHA_ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_semi, &kp SEMI,      RM0 RM1, ALPHA_ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_under, &kp UNDER,    RB1 RB3, ALPHA_ALL, COMBO_TERM_SLOW)
+ZMK_COMBO(combo_equal, &kp EQUAL,    RB2 RB3, ALPHA_ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_percent, &kp PRCNT,  RB3 RB4, ALPHA_ALL, COMBO_TERM_SLOW)
+ZMK_COMBO(combo_tilde, &kp TILDE,    RB0 RB4, ALPHA_ALL, COMBO_TERM_SLOW)
+
+// pronoun combos
+
+ZMK_COMBO(pnI, &typePnI,          RM3 RM4, ALPHA_ALL, COMBO_TERM_FAST) // "I "
+
+ZMK_COMBO(pnIm, &typePnIm,        RM3 LT2, ALPHA_ALL, COMBO_TERM_FAST) // "I'm "
+ZMK_COMBO(pnIll, &typePnIll,      RM3 LB2, ALPHA_ALL, COMBO_TERM_FAST) // "I'll "
+ZMK_COMBO(pnId, &typePnId,        RM3 LB1, ALPHA_ALL, COMBO_TERM_FAST) // "I'd "
+ZMK_COMBO(pnIve, &typePnIve,      RM3 LB0, ALPHA_ALL, COMBO_TERM_FAST) // "I've "
+
+ZMK_COMBO(pnYoure, &typePnYoure,  RB3 LH0, ALPHA_ALL, COMBO_TERM_FAST) // "You're "
+ZMK_COMBO(pnYoull, &typePnYoull,  RB3 LB2, ALPHA_ALL, COMBO_TERM_FAST) // "You'll "
+ZMK_COMBO(pnYoud, &typePnYoud,    RB3 LB1, ALPHA_ALL, COMBO_TERM_FAST) // "You'd "
+ZMK_COMBO(pnYouve, &typePnYouve,  RB3 LB0, ALPHA_ALL, COMBO_TERM_FAST) // "You've "
+
+ZMK_COMBO(pnWere, &typePnWere,    LT4 LH0, ALPHA_ALL, COMBO_TERM_FAST) // "We're "
+ZMK_COMBO(pnWell, &typePnWell,    LT4 LT2, ALPHA_ALL, COMBO_TERM_FAST) // "We'll "
+ZMK_COMBO(pnWed, &typePnWed,      LT4 LT1, ALPHA_ALL, COMBO_TERM_FAST) // "We'd "
+ZMK_COMBO(pnWeve, &typePnWeve,    LT4 LT0, ALPHA_ALL, COMBO_TERM_FAST) // "We've "
+
 
 #define ZMK_MACRO_FAST(NAME, ...) \
     ZMK_BEHAVIOR(NAME, macro, \
@@ -176,6 +202,8 @@ ZMK_COMBO(combo_tilde, &kp TILDE, RB0 RB4, ALPHA_ALL, COMBO_TERM_SLOW)
         tap-ms = <0>; \
         bindings = __VA_ARGS__ ; \
     )
+
+// macros for h-digraphs
     
 ZMK_MACRO_FAST(Wh,
     <&macro_tap &kp W>
@@ -218,6 +246,47 @@ ZMK_MACRO_FAST(Ph,
     , <&macro_release &kp LSHFT &kp RSHFT>
     , <&macro_tap &kp H>
 )
+
+// macros for pronouns
+
+ZMK_MACRO_FAST(typePnI, <&kp LS(I) &kp SPACE>)
+ZMK_MACRO_FAST(typePnIm, <&kp LS(I) &kp APOS &kp M &kp SPACE>)
+ZMK_MACRO_FAST(typePnIll, <&kp LS(I) &kp APOS &kp L &kp L &kp SPACE>)
+ZMK_MACRO_FAST(typePnId, <&kp LS(I) &kp APOS &kp D &kp SPACE>)
+ZMK_MACRO_FAST(typePnIve, <&kp LS(I) &kp APOS &kp V &kp E &kp SPACE>)
+ZMK_MACRO_FAST(typePnYoure,
+    <&macro_tap &kp Y>,
+    <&macro_release &kp LSHFT &kp RSHFT>,
+    <&macro_tap &kp O &kp U &kp APOS &kp R &kp E &kp SPACE>)
+ZMK_MACRO_FAST(typePnYoull,
+    <&macro_tap &kp Y>,
+    <&macro_release &kp LSHFT &kp RSHFT>,
+    <&macro_tap &kp O &kp U &kp APOS &kp L &kp L &kp SPACE>)
+ZMK_MACRO_FAST(typePnYoud,
+    <&macro_tap &kp Y>,
+    <&macro_release &kp LSHFT &kp RSHFT>,
+    <&macro_tap &kp O &kp U &kp APOS &kp D &kp SPACE>)
+ZMK_MACRO_FAST(typePnYouve,
+    <&macro_tap &kp Y>,
+    <&macro_release &kp LSHFT &kp RSHFT>,
+    <&macro_tap &kp O &kp U &kp APOS &kp V &kp E &kp SPACE>)
+ZMK_MACRO_FAST(typePnWere,
+    <&macro_tap &kp W>,
+    <&macro_release &kp LSHFT &kp RSHFT>,
+    <&macro_tap &kp E &kp APOS &kp R &kp E &kp SPACE>)
+ZMK_MACRO_FAST(typePnWell,
+    <&macro_tap &kp W>,
+    <&macro_release &kp LSHFT &kp RSHFT>,
+    <&macro_tap &kp E &kp APOS &kp L &kp L &kp SPACE>)
+ZMK_MACRO_FAST(typePnWed,
+    <&macro_tap &kp W>,
+    <&macro_release &kp LSHFT &kp RSHFT>,
+    <&macro_tap &kp E &kp APOS &kp D &kp SPACE>)
+ZMK_MACRO_FAST(typePnWeve,
+    <&macro_tap &kp W>,
+    <&macro_release &kp LSHFT &kp RSHFT>,
+    <&macro_tap &kp E &kp APOS &kp V &kp E &kp SPACE>)
+
 
 /* Mod morphs */
 
