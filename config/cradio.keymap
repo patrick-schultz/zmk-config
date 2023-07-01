@@ -40,15 +40,16 @@
 
 #define ALPHA 0
 #define l_akG 1
-#define l_akM 2
-#define l_akA 3
-#define l_akU 4
-#define l_akE 5
-#define l_akO 6
-#define NUM 7
-#define EXT 8
-#define SYM 9
-#define FN 10
+#define l_akB 2
+#define l_akM 3
+#define l_akA 4
+#define l_akU 5
+#define l_akE 6
+#define l_akO 7
+#define NUM 8
+#define EXT 9
+#define SYM 10
+#define FN 11
 
 // activate FN layer by activating both EXT and SYM
 ZMK_CONDITIONAL_LAYER(EXT SYM, FN)
@@ -288,6 +289,7 @@ ZMK_BEHAVIOR(ak, sticky_key,
     <&ak l_ak##KEY>)
 
 AK(G)
+AK(B)
 AK(M)
 AK(A)
 AK(U)
@@ -335,6 +337,13 @@ ZMK_LAYER(default_layer,
 ZMK_LAYER(l_akG,
 ___     ___     &kp L   ___     ___    ___     ___     ___     ___     ___
 ___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+                        ___     ___    ___     ___
+)
+
+ZMK_LAYER(l_akB,
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+___     &kp S   ___     ___     ___    ___     ___     ___     ___     ___
 ___     ___     ___     ___     ___    ___     ___     ___     ___     ___
                         ___     ___    ___     ___
 )
