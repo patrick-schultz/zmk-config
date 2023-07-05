@@ -48,11 +48,7 @@
 #define l_akU 7
 #define NUM 8
 #define EXT 9
-#define SYM 10
-#define FN 11
-
-// activate FN layer by activating both EXT and SYM
-ZMK_CONDITIONAL_LAYER(EXT SYM, FN)
+#define FN 10
 
 /* Homerow mods */
 
@@ -154,11 +150,17 @@ MAKE_HRM(hm_tch, &kp, &Tch, KEYS_L KEYS_T)
 ZMK_COMBO(combo_tch, &hm_tch LA(LG(LSHFT)) 0,  LM3 LM2 LM1, ALPHA_ALL, COMBO_TERM_SLOW)
 ZMK_COMBO(combo_ph, &Ph,                       LB3 LB2,     ALPHA_ALL, COMBO_TERM_FAST)
 
-// nav combos
+// editing combos
 
 // ZMK_COMBO(combo_esc, &kp ESC,       LM4 LM1, ALL, COMBO_TERM_SLOW)
 // ZMK_COMBO(combo_tab, &kp TAB,       LT4 LT3, ALL, COMBO_TERM_FAST)
 ZMK_COMBO(combo_capsword, &caps_word,  LM1 RM1, ALL, COMBO_TERM_SLOW)
+
+ZMK_COMBO(undo, &kp LG(Z),       LB4 LB3,     ALL, COMBO_TERM_FAST)
+ZMK_COMBO(redo, &kp LG(LS(Z)),   LB4 LB3 LB2, ALL, COMBO_TERM_SLOW)
+ZMK_COMBO(cut,  &kp LG(X),       LB4 LB2,     ALL, COMBO_TERM_SLOW)
+ZMK_COMBO(copy, &kp LG(X) LG(C), LB3 LB2,     ALL, COMBO_TERM_FAST)
+ZMK_COMBO(pste, &kp LG(V),       LB2 LB1,     ALL, COMBO_TERM_FAST)
 
 // glyph combos
 
@@ -392,15 +394,10 @@ ZMK_BEHAVIOR(lk_qu, hold_tap,
 // keymap
 
 ZMK_LAYER(default_layer,
-//╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-    &kp X      &kp W      &ak_M      &ak_G     &lt NUM J      &HashDllr   &DotColn  &SlshStar   &DqtLbkt   &SqtRbkt
-//├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-&hml LCTRL S &hml LALT C &hml LCMD N &hm_shift_l LSHFT T &kp K &CmmaSemi &hrm_a RSHFT A &hrm_e RCMD E &hmr RALT I &hmr RCTRL H
-//├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-    &ak_B      &kp P      &kp L      &kp D      &kp V        &MinusPlus   &ak_U      &ak_O      &kp Y      &kp F
-//╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                   &smart_shft &lt EXT R     &lt SYM SPACE &kp ESC 
-//                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+&kp X         &kp W        &ak_M        &ak_G                &kp J        &HashDllr      &DotColn        &SlshStar      &DqtLbkt     &SqtRbkt
+&hml LCTRL S  &hml LALT C  &hml LCMD N  &hm_shift_l LSHFT T  &kp K        &CmmaSemi      &hrm_a RSHFT A  &hrm_e RCMD E  &hmr RALT I  &hmr RCTRL H
+&ak_B         &kp P        &kp L        &kp D                &kp V        &MinusPlus     &ak_U           &ak_O          &kp Y        &kp F
+                                        &smart_shft          &lt EXT R    &lt NUM SPACE  &lt FN ESC 
 )
 
 ZMK_LAYER(l_akG,
@@ -454,49 +451,23 @@ ___     ___     ___     ___     ___    ___     ___     ___     ___     ___
 )
 
 ZMK_LAYER(num_layer,
-//╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-    XXX        XXX        XXX        XXX        XXX            &kp EQUAL  &kp N7     &kp N8     &kp N9     XXX  
-//├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-    &kp LCTRL  &kp LALT   &kp LCMD   &kp LSHFT &sys_reset      &kp STAR   &kp N4     &kp N5     &kp N6     &kp PLUS
-//├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-    XXX        XXX        &kp TAB    &kp BSPC   XXX            &kp FSLH   &kp N1     &kp N2     &kp N3     &kp MINUS
-//╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                     ___        ___            ___        &kp N0
-//                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+___       &kp LT           &kp GT          &kp CARET         &kp AMPS     &kp AMPS  &kp N7            &kp N8          &kp N9           XXX
+___       &hml LALT MINUS  &hml LCMD PLUS  &hml LSHFT EQUAL  &kp PIPE     &kp DOT   &hmr RSHFT N4     &hmr RCMD N5    &hmr RALT N6     &kp RCTRL
+&kp BSLH  &kp FSLH         &kp STAR        &kp UNDER         &kp TILDE    &kp N0    &kp N1            &kp N2          &kp N3           XXX
+                                           ___               &mo EXT      ___       ___   
 )
+
 
 ZMK_LAYER(ext_layer,
-//╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-    XXX        XXX      &kp LS(TAB)  &swapper  SMART_NUM       &kp PG_UP  &kp HOME   &kp UP     &kp END    XXX 
-//├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-    &kp LCTRL  &kp LALT   &kp LCMD   &kp LSHFT  XXX            &kp PG_DN  &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL
-//├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-    &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  XXX            &none      &kp BSPC   &kp TAB    XXX        XXX 
-//╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                     ___        ___          &lt SYM RET &kp K_CANCEL   
-//                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
-)
-
-ZMK_LAYER(sym_layer,
-//╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-    &kp GRAVE   &kp LT     &kp GT    &kp CARET  &none          &kp AMPS   &kp DLLR   &kp LBKT   &kp RBKT  &kp PRCNT
-//├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-    &kp EXCL  &kp MINUS   &kp PLUS  &kp EQUAL   &kp HASH       &kp PIPE  &kp COLON   &kp LPAR   &kp RPAR  &kp QMARK
-//├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-    &kp BSLH   &kp FSLH   &kp STAR  &kp UNDER   XXX           &kp TILDE   &kp SEMI   &kp LBRC   &kp RBRC   &kp AT
-//╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                     ___        ___            ___        ___   
-//                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+&kp Z      &kp Q           &kp LS(TAB)     &swapper          XXX          &kp PG_UP  &kp HOME         &kp UP          &kp END          XXX 
+&kp LCTRL  &hml LALT LBKT  &hml LCMD LBRC  &hml LSHFT LPAR   XXX          &kp PG_DN  &hmr RSHFT LEFT  &hmr RCMD DOWN  &hmr RALT RIGHT  &kp RCTRL
+XXX        &kp RBKT        &kp RBRC        &kp RPAR          XXX          &none      &kp BSPC         &kp TAB         &kp DEL          XXX 
+                                           ___               ___          &kp RET    &kp K_CANCEL   
 )
 
 ZMK_LAYER(fn_layer,
-//╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-    XXX       &kp C_PREV  &kp C_PP  &kp C_NEXT &bootloader    &bootloader &kp F7     &kp F8     &kp F9     &kp F12
-//├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-    &kp LCTRL  &kp LALT   &kp LCMD   &kp LSHFT &sys_reset     &sys_reset  &kp F4     &kp F5     &kp F6     &kp F11
-//├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-    XXX      &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP XXX          XXX        &kp F1     &kp F2     &kp F3     &kp F10
-//╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                     ___        ___            ___        ___   
-//                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+XXX        &kp C_PREV  &kp C_PP      &kp C_NEXT    &bootloader    &bootloader  &kp F7  &kp F8  &kp F9  &kp F12
+&kp LCTRL  &kp LALT    &kp LCMD      &kp LSHFT     &sys_reset     &sys_reset   &kp F4  &kp F5  &kp F6  &kp F11
+XXX        &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  XXX            XXX          &kp F1  &kp F2  &kp F3  &kp F10
+                                     ___           ___            ___          ___   
 )
