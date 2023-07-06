@@ -157,8 +157,8 @@ ZMK_COMBO(combo_capsword, &caps_word,  LM1 RM1, ALL, COMBO_TERM_SLOW)
 
 ZMK_COMBO(undo, &kp LG(Z),       LB4 LB3,     ALL, COMBO_TERM_FAST)
 ZMK_COMBO(redo, &kp LG(LS(Z)),   LB4 LB3 LB2, ALL, COMBO_TERM_SLOW)
-ZMK_COMBO(cut,  &kp LG(X),       LB4 LB2,     ALL, COMBO_TERM_SLOW)
-ZMK_COMBO(copy, &kp LG(C),       LB3 LB2,     ALL, COMBO_TERM_FAST)
+ZMK_COMBO(cut,  &kp LG(X),       LB3 LB2 LB1, ALL, COMBO_TERM_SLOW)
+ZMK_COMBO(copy, &kp LG(C),       LB3 LB1,     ALL, COMBO_TERM_SLOW)
 ZMK_COMBO(pste, &kp LG(V),       LB2 LB1,     ALL, COMBO_TERM_FAST)
 
 // glyph combos
