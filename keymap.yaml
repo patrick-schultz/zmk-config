@@ -24,8 +24,10 @@ combos:
   - {p: [7, 8], k: '?', l: [Base]}
   - {p: [8, 9], k: '`', l: [Base]}
   - {p: [15, 16], k: ';', l: [Base]}
-  - {p: [16, 17], k: Esc, l: [Base]}
-  - {p: [26, 27], k: '⌫', l: [Base]}
+  - {p: [16, 17], k: '⌫', l: [Base]}
+  - {p: [17, 18], k: Tab, l: [Base]}
+  - {p: [18, 19], k: '⌦', l: [Base]}
+  - {p: [26, 27], k: Esc, l: [Base]}
   - {p: [26, 28], k: '_', l: [Base], a: 'bottom'}
   - {p: [27, 28], k: '=', l: [Base]}
 layers:
