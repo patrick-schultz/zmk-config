@@ -161,21 +161,23 @@ ZMK_COMBO(cut,  &kp LG(X),       LB3 LB2 LB1, ALL, COMBO_TERM_SLOW)
 ZMK_COMBO(copy, &kp LG(C),       LB3 LB1,     ALL, COMBO_TERM_SLOW)
 ZMK_COMBO(pste, &kp LG(V),       LB2 LB1,     ALL, COMBO_TERM_FAST)
 
+ZMK_COMBO(combo_bspc, &kp BSPC,  RB1 RB2,     ALL, COMBO_TERM_FAST)
+
 // glyph combos
 
 ZMK_COMBO(combo_qu, &lk_qu Q Q,      LT3 LT1, ALPHA_ALL, 70)
 ZMK_COMBO(combo_z, &kp Z,            LT4 LT3, ALPHA_ALL, COMBO_TERM_SLOW)
 
-ZMK_COMBO(combo_colon, &kp COLON,    RT1 RT3, ALPHA_ALL, COMBO_TERM_SLOW)
-ZMK_COMBO(combo_excl, &kp EXCL,      RT1 RT2, ALPHA_ALL, COMBO_TERM_FAST)
-ZMK_COMBO(combo_qmark, &kp QMARK,    RT2 RT3, ALPHA_ALL, COMBO_TERM_FAST)
-ZMK_COMBO(combo_grave, &kp GRAVE,    RT3 RT4, ALPHA_ALL, COMBO_TERM_SLOW)
-ZMK_COMBO(combo_at, &kp AT,          RT0 RT1, ALPHA_ALL, COMBO_TERM_FAST)
-ZMK_COMBO(combo_semi, &kp SEMI,      RM0 RM1, ALPHA_ALL, COMBO_TERM_FAST)
-ZMK_COMBO(combo_under, &kp UNDER,    RB1 RB3, ALPHA_ALL, COMBO_TERM_SLOW)
-ZMK_COMBO(combo_equal, &kp EQUAL,    RB2 RB3, ALPHA_ALL, COMBO_TERM_FAST)
-ZMK_COMBO(combo_percent, &kp PRCNT,  RB3 RB4, ALPHA_ALL, COMBO_TERM_SLOW)
-ZMK_COMBO(combo_tilde, &kp TILDE,    RB0 RB4, ALPHA_ALL, COMBO_TERM_SLOW)
+ZMK_COMBO(combo_colon, &kp COLON,         RT1 RT3, ALPHA_ALL, COMBO_TERM_SLOW)
+ZMK_COMBO(combo_excl, &kp EXCL,           RT1 RT2, ALPHA_ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_qmark, &kp QMARK,         RT2 RT3, ALPHA_ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_grave, &kp GRAVE,         RT3 RT4, ALPHA_ALL, COMBO_TERM_SLOW)
+ZMK_COMBO(combo_at, &kp AT,               RT0 RT1, ALPHA_ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_semi, &kp SEMI,           RM0 RM1, ALPHA_ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_under, &kp UNDER,         RB1 RB3, ALPHA_ALL, COMBO_TERM_SLOW)
+ZMK_COMBO(combo_equal, &kp EQUAL,         RB2 RB3, ALPHA_ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_ndash, &kp LA(MINUS),     RB0 RB1, ALPHA_ALL, COMBO_TERM_FAST) // N-dash
+ZMK_COMBO(combo_mdash, &kp LA(LS(MINUS)), RB0 RB2, ALPHA_ALL, COMBO_TERM_SLOW) // M-dash
 
 // pronoun combos
 
@@ -396,7 +398,7 @@ ZMK_LAYER(default_layer,
 &kp X         &kp W        &ak_M        &ak_G                &kp J        &HashDllr      &DotColn        &SlshStar      &DqtLbkt     &SqtRbkt
 &hml LCTRL S  &hml LALT C  &hml LCMD N  &hm_shift_l LSHFT T  &kp K        &CmmaSemi      &hrm_a RSHFT A  &hrm_e RCMD E  &hmr RALT I  &hmr RCTRL H
 &ak_B         &kp P        &kp L        &kp D                &kp V        &MinusPlus     &ak_U           &ak_O          &kp Y        &kp F
-                                        &smart_shft          &lt EXT R    &lt NUM SPACE  &lt FN RET 
+                                        &smart_shft          &lt NUM R    &lt EXT SPACE  &lt FN RET 
 )
 
 ZMK_LAYER(l_akG,
@@ -450,18 +452,18 @@ ___     ___     ___     ___     ___    ___     ___     ___     ___     ___
 )
 
 ZMK_LAYER(num_layer,
-___       &kp LT           &kp GT          &kp CARET         &kp AMPS     &kp AMPS  &kp N7            &kp N8          &kp N9           XXX
-___       &hml LALT MINUS  &hml LCMD PLUS  &hml LSHFT EQUAL  &kp PIPE     &kp DOT   &hmr RSHFT N4     &hmr RCMD N5    &hmr RALT N6     &kp RCTRL
-&kp BSLH  &kp FSLH         &kp STAR        &kp UNDER         &kp TILDE    &kp N0    &kp N1            &kp N2          &kp N3           XXX
-                                           ___               &mo EXT      ___       ___   
+&kp CARET  &kp LT           &kp GT          &kp DOLLAR        &kp AMPS     &kp AMPS  &kp N7            &kp N8          &kp N9           XXX
+&kp HASH   &hml LALT MINUS  &hml LCMD PLUS  &hml LSHFT EQUAL  &kp PIPE     &kp DOT   &hmr RSHFT N4     &hmr RCMD N5    &hmr RALT N6     &kp RCTRL
+&kp BSLH   &kp FSLH         &kp STAR        &kp UNDER         &kp TILDE    &kp N0    &kp N1            &kp N2          &kp N3           XXX
+                                            ___               ___          ___       &kp ESC   
 )
 
 
 ZMK_LAYER(ext_layer,
-&kp Z      &kp Q           &kp LS(TAB)     &swapper          XXX          &kp PG_UP  &kp HOME         &kp UP          &kp END          XXX 
-&kp LCTRL  &hml LALT LBKT  &hml LCMD LBRC  &hml LSHFT LPAR   XXX          &kp PG_DN  &hmr RSHFT LEFT  &hmr RCMD DOWN  &hmr RALT RIGHT  &kp RCTRL
-XXX        &kp RBKT        &kp RBRC        &kp RPAR          XXX          &none      &kp BSPC         &kp TAB         &kp DEL          XXX 
-                                           ___               ___          &kp ESC    &kp K_CANCEL   
+&kp Z      &kp Q           &kp LBRC        &kp RBRC          XXX          &kp PG_UP  &kp HOME         &kp UP          &kp END          XXX 
+&kp LCTRL  &hml LALT LBKT  &hml LCMD LPAR  &hml LSHFT RPAR   XXX          &kp PG_DN  &hmr RSHFT LEFT  &hmr RCMD DOWN  &hmr RALT RIGHT  &kp RCTRL
+XXX        XXX             &kp LBKT        &kp RBKT          XXX          &none      &kp BSPC         &kp TAB         &kp DEL          XXX 
+                                           &kp LS(TAB)       &swapper     ___        ___   
 )
 
 ZMK_LAYER(fn_layer,
