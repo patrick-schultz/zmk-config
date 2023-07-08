@@ -49,6 +49,8 @@
 #define NUM 8
 #define EXT 9
 #define FN 10
+#define l_camel 11
+#define l_snake 12
 
 /* Homerow mods */
 
@@ -123,6 +125,13 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
 ZMK_BEHAVIOR(swapper, tri_state,
     bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>;
     ignored-key-positions = <LT2>;
+)
+
+ZMK_BEHAVIOR(camel_case, caps_word,
+    layers = <l_camel>;
+    ignore-alphas;
+    ignore-numbers;
+    continue-list = <BSPC DEL LSHFT>;
 )
 
 /* Combos */
@@ -392,7 +401,7 @@ ZMK_LAYER(default_layer,
 &kp X         &kp W        &ak_M        &ak_G                &kp J        &bspc_del      &DotColn        &SlshStar      &DqtLbkt     &SqtRbkt
 &hml LCTRL S  &hml LALT C  &hml LCMD N  &hm_shift_l LSHFT T  &kp K        &CmmaSemi      &hrm_a RSHFT A  &hrm_e RCMD E  &hmr RALT I  &hmr RCTRL H
 &ak_B         &kp P        &kp L        &kp D                &kp V        &MinusPlus     &ak_U           &ak_O          &kp Y        &kp F
-                                        &smart_shft          &lt NUM R    &lt EXT SPACE  &lt FN RET 
+                                        &camel_case          &lt NUM R    &lt EXT SPACE  &lt FN RET 
 )
 
 ZMK_LAYER(l_akG,
@@ -465,4 +474,18 @@ XXX        &kp C_PREV  &kp C_PP      &kp C_NEXT    &bootloader    &bootloader  &
 &kp LCTRL  &kp LALT    &kp LCMD      &kp LSHFT     &sys_reset     &sys_reset   &kp F4  &kp F5  &kp F6  &kp F11
 XXX        &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  XXX            XXX          &kp F1  &kp F2  &kp F3  &kp F10
                                      ___           ___            ___          ___   
+)
+
+ZMK_LAYER(l_camel,
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+                   &kp K_CANCEL ___  &sk LSHFT  ___
+)
+
+ZMK_LAYER(l_snake,
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+                   &kp K_CANCEL ___  &kp UNDER ___
 )
