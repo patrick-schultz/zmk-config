@@ -138,18 +138,45 @@ ZMK_BEHAVIOR(long_sticky, sticky_key,
     bindings = <&kp>;
     release-after-ms = <5000>;
     quick-release;)
+
+ZMK_BEHAVIOR(smart_case, mod_morph,
+    bindings = <&smart_case2>, <&camel_pascal>;
+    mods = <(MOD_RGUI)>;
+)
+ZMK_BEHAVIOR(smart_case2, mod_morph,
+    bindings = <&smart_case3>, <&scream_smart_case>;
+    mods = <(MOD_RSFT|MOD_LSFT)>;
+)
+ZMK_MACRO_FAST(scream_smart_case, <&scream_case &smart_case3>)
+ZMK_BEHAVIOR(smart_case3, mod_morph,
+    bindings = <&smart_shft>, <&snake_case>;
+    mods = <(MOD_RALT)>;
+)
+
+ZMK_BEHAVIOR(camel_pascal, mod_morph,
+    bindings = <&camel_case>, <&pascal_case>;
+    mods = <(MOD_RSFT)>;
+)
 ZMK_BEHAVIOR(camel_case, caps_word,
     layers = <l_camel>;
     ignore-alphas;
     ignore-numbers;
-    continue-list = <BSPC DEL LSHFT>;
+    continue-list = <BSPC DEL LSHFT UNDER MINUS FSLH>;
+)
+ZMK_BEHAVIOR(snake_case, caps_word,
+    layers = <l_snake>;
+    ignore-alphas;
+    ignore-numbers;
+    continue-list = <BSPC DEL LSHFT UNDER MINUS FSLH>;
+)
+ZMK_BEHAVIOR(scream_case, caps_word,
+    mods = <MOD_LSFT>;
+    ignore-alphas;
+    ignore-numbers;
+    continue-list = <BSPC DEL LSHFT UNDER MINUS FSLH>;
 )
 ZMK_MACRO_FAST(pascal_case,
     <&camel_case &long_sticky LSHFT>
-)
-ZMK_BEHAVIOR(cc_space, mod_morph,
-    bindings = <&camel_case>, <&pascal_case>;
-    mods = <(MOD_RSFT)>;
 )
 
 /* Combos */
@@ -366,7 +393,6 @@ ZMK_BEHAVIOR(ak, sticky_key,
     release-after-ms = <AK_TAPPING_TERM>;
     quick-release;
 )
-// todo: make macro activate layer while held, then hit sticky key on release
 #define AK(KEY) ZMK_MACRO_FAST(ak_##KEY, \
     <&macro_tap &kp KEY>, \
     <&macro_press &mo l_ak##KEY>, \
@@ -412,7 +438,7 @@ ZMK_LAYER(default_layer,
 &kp X         &kp W        &ak_M        &ak_G                &kp J        &bspc_del      &DotColn        &SlshStar      &DqtLbkt     &SqtRbkt
 &hml LCTRL S  &hml LALT C  &hml LCMD N  &hm_shift_l LSHFT T  &kp K        &CmmaSemi      &hrm_a RSHFT A  &hrm_e RCMD E  &hmr RALT I  &hmr RCTRL H
 &ak_B         &kp P        &kp L        &kp D                &kp V        &MinusPlus     &ak_U           &ak_O          &kp Y        &kp F
-                                        &cc_space          &lt NUM R    &lt EXT SPACE  &lt FN RET 
+                                        &smart_case          &lt NUM R    &lt EXT SPACE  &lt FN RET 
 )
 
 ZMK_LAYER(l_akG,
