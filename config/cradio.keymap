@@ -501,7 +501,7 @@ ZMK_LAYER(num_layer,
 
 ZMK_LAYER(ext_layer,
 &kp Z      &kp Q           &kp LBRC        &kp RBRC          XXX          &kp PG_UP  &kp HOME         &kp UP          &kp END          XXX 
-&kp LCTRL  &hml LALT LBKT  &hml LCMD LPAR  &hml LSHFT RPAR   XXX          &kp PG_DN  &hmr RSHFT LEFT  &hmr RCMD DOWN  &hmr RALT RIGHT  &kp RCTRL
+&kp LCTRL  &kp LALT        &hml LCMD LPAR  &hml LSHFT RPAR   XXX          &kp PG_DN  &hmr RSHFT LEFT  &hmr RCMD DOWN  &hmr RALT RIGHT  &kp RCTRL
 XXX        XXX             &kp LBKT        &kp RBKT          XXX          &none      &kp BSPC         &kp TAB         &kp DEL          XXX 
                                            &kp LS(TAB)       &swapper     ___        ___   
 )
