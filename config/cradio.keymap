@@ -53,11 +53,12 @@
 #define l_akA 5
 #define l_akO 6
 #define l_akU 7
-#define NUM 8
-#define EXT 9
-#define FN 10
-#define l_camel 11
-#define l_snake 12
+#define l_akIY 8
+#define NUM 9
+#define EXT 10
+#define FN 11
+#define l_camel 12
+#define l_snake 13
 
 /* Homerow mods */
 
@@ -99,6 +100,7 @@ ZMK_BEHAVIOR(hrm_a, hold_tap,
   bindings = <&kp>, <&ak_A>;
 )
 MAKE_HRM(hrm_e, &kp, &ak_E, KEYS_L KEYS_T)
+MAKE_HRM(hrm_i, &kp, &ak_I, KEYS_L KEYS_T)
 
 /* Caps-word, num-word and smart-mouse */
 
@@ -393,20 +395,26 @@ ZMK_BEHAVIOR(ak, sticky_key,
     release-after-ms = <AK_TAPPING_TERM>;
     quick-release;
 )
-#define AK(KEY) ZMK_MACRO_FAST(ak_##KEY, \
-    <&macro_tap &kp KEY>, \
-    <&macro_press &mo l_ak##KEY>, \
-    <&macro_pause_for_release>, \
-    <&macro_release &mo l_ak##KEY>, \
-    <&ak l_ak##KEY>)
 
-AK(G)
-AK(B)
-AK(M)
-AK(A)
-AK(U)
-AK(E)
-AK(O)
+#define MACRO_CHOOSER2(_1, _2, FUNC, ...) FUNC
+#define AK(...) MACRO_CHOOSER2(__VA_ARGS__, AK2, AK1)(__VA_ARGS__)
+#define AK2(KEY, LAYER) ZMK_MACRO_FAST(ak_##KEY, \
+    <&macro_tap &kp KEY>, \
+    <&macro_press &mo l_ak##LAYER>, \
+    <&macro_pause_for_release>, \
+    <&macro_release &mo l_ak##LAYER>, \
+    <&ak l_ak##LAYER>)
+#define AK1(KEY) AK2(KEY, KEY)
+
+AK2(G, G)
+AK2(B, B)
+AK2(M, M)
+AK2(A, A)
+AK2(U, U)
+AK2(E, E)
+AK2(O, O)
+AK2(I, IY)
+AK2(Y, IY)
 
 ZMK_MACRO_FAST(ak_lg, <&kp BSPC &kp L &kp G>)
 
@@ -436,8 +444,8 @@ ZMK_BEHAVIOR(lk_qu, hold_tap,
 
 ZMK_LAYER(default_layer,
 &kp X         &kp W        &ak_M        &ak_G                &kp J        &bspc_del      &DotColn        &SlshStar      &DqtLbkt     &SqtRbkt
-&hml LCTRL S  &hml LALT C  &hml LCMD N  &hm_shift_l LSHFT T  &kp K        &CmmaSemi      &hrm_a RSHFT A  &hrm_e RCMD E  &hmr RALT I  &hmr RCTRL H
-&ak_B         &kp P        &kp L        &kp D                &kp V        &MinusPlus     &ak_U           &ak_O          &kp Y        &kp F
+&hml LCTRL S  &hml LALT C  &hml LCMD N  &hm_shift_l LSHFT T  &kp K        &CmmaSemi      &hrm_a RSHFT A  &hrm_e RCMD E  &hrm_i RALT I  &hmr RCTRL H
+&ak_B         &kp P        &kp L        &kp D                &kp V        &MinusPlus     &ak_U           &ak_O          &ak_Y        &kp F
                                         &smart_case          &lt NUM R    &lt EXT SPACE  &lt FN RET 
 )
 
@@ -488,6 +496,13 @@ ZMK_LAYER(l_akU,
 ___     ___     ___     ___     ___    ___     ___     ___     ___     ___
 ___     ___     ___     ___     ___    ___     ___     ___     ___     &kp A
 ___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+                        ___     ___    ___     ___
+)
+
+ZMK_LAYER(l_akIY,
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+___     ___     ___     ___     ___    ___     ___     ___     ___     &kp F
+___     ___     ___     ___     ___    ___     ___     ___     ___     &kp I
                         ___     ___    ___     ___
 )
 

@@ -64,6 +64,17 @@ layers:
        null, F1, F2, F3, F10]
     - [null, null, null, {t: Fn, type: held}]
 
+# adaptives:
+# gm -> gl
+# mg -> lg
+# bc -> bs
+# ah -> au
+# eh -> eo
+# uh -> ua
+# oh -> oe
+# ih -> if
+# yf -> yi
+
 # old layout
 layout:
   qmk_keyboard: ferris/sweep
