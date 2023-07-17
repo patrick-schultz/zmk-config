@@ -509,7 +509,7 @@ ___     ___     ___     ___     ___    ___     ___     ___     ___     &kp I
 ZMK_LAYER(num_layer,
 &kp CARET  &kp LT           &kp GT          &kp DOLLAR        &kp AMPS     ___       &kp N7            &kp N8          &kp N9           XXX
 &kp HASH   &hml LALT MINUS  &hml LCMD PLUS  &hml LSHFT EQUAL  &kp PIPE     &kp DOT   &hmr RSHFT N4     &hmr RCMD N5    &hmr RALT N6     &kp RCTRL
-&kp BSLH   &kp FSLH         &kp STAR        &kp UNDER         &kp TILDE    &kp N0    &kp N1            &kp N2          &kp N3           XXX
+&kp BSLH   &kp FSLH         &kp STAR        &kp PRCNT         &kp TILDE    &kp N0    &kp N1            &kp N2          &kp N3           XXX
                                             ___               ___          ___       &kp ESC   
 )
 
