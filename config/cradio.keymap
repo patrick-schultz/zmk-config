@@ -195,7 +195,7 @@ ZMK_COMBO(combo_wh, &Wh,                       LT3 LT2,     ALPHA_ALL, COMBO_TER
 ZMK_COMBO(combo_gh, &Gh,                       LT2 LT1,     ALPHA_ALL, COMBO_TERM_FAST)
 ZMK_COMBO(combo_ght, &ght,                     LT3 LT2 LT1, ALPHA_ALL, COMBO_TERM_SLOW)
 MAKE_HRM(hm_sh, &kp, &Sh, KEYS_L KEYS_T)
-ZMK_COMBO(combo_sh, &hm_sh LC(LALT) 0,         LM4 LM3,     ALPHA_ALL, COMBO_TERM_SLOW)
+ZMK_COMBO(combo_sh, &hm_sh LC(LALT) 0,         LM4 LM3,     ALPHA_ALL, COMBO_TERM_FAST)
 MAKE_HRM(hm_sch, &kp, &Sch, KEYS_L KEYS_T)
 ZMK_COMBO(combo_sch, &hm_sch LC(LA(LCMD)) 0,   LM4 LM3 LM2, ALPHA_ALL, COMBO_TERM_SLOW)
 MAKE_HRM(hm_ch, &kp, &Ch, KEYS_L KEYS_T)
