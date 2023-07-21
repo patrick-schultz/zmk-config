@@ -53,13 +53,13 @@
 #define l_akA 5
 #define l_akO 6
 #define l_akU 7
-#define l_akIY 8
+#define l_akY 8
 #define l_camel 9
 #define l_snake 10
 #define NUM 11
 #define EXT 12
 #define FN 13
-#define ALPHA_ALL ALPHA l_akG l_akB l_akM l_akE l_akA l_akO l_akU l_akIY
+#define ALPHA_ALL ALPHA l_akG l_akB l_akM l_akE l_akA l_akO l_akU l_akY
 
 /* Homerow mods */
 
@@ -413,8 +413,7 @@ AK2(A, A)
 AK2(U, U)
 AK2(E, E)
 AK2(O, O)
-AK2(I, IY)
-AK2(Y, IY)
+AK2(Y, Y)
 
 ZMK_MACRO_FAST(ak_lg, <&kp BSPC &kp L &kp G>)
 
@@ -444,7 +443,7 @@ ZMK_BEHAVIOR(lk_qu, hold_tap,
 
 ZMK_LAYER(default_layer,
 &kp X         &kp W        &ak_M        &ak_G                &kp J        &bspc_del      &DotColn        &SlshStar      &DqtLbkt     &SqtRbkt
-&hml LCTRL S  &hml LALT C  &hml LCMD N  &hm_shift_l LSHFT T  &kp K        &CmmaSemi      &hrm_a RSHFT A  &hrm_e RCMD E  &hrm_i RALT I  &hmr RCTRL H
+&hml LCTRL S  &hml LALT C  &hml LCMD N  &hm_shift_l LSHFT T  &kp K        &CmmaSemi      &hrm_a RSHFT A  &hrm_e RCMD E  &hmr RALT I  &hmr RCTRL H
 &ak_B         &kp P        &kp L        &kp D                &kp V        &MinusPlus     &ak_U           &ak_O          &ak_Y        &kp F
                                         &smart_case          &lt NUM R    &lt EXT SPACE  &lt FN RET 
 )
@@ -499,9 +498,9 @@ ___     ___     ___     ___     ___    ___     ___     ___     ___     ___
                         ___     ___    ___     ___
 )
 
-ZMK_LAYER(l_akIY,
+ZMK_LAYER(l_akY,
 ___     ___     ___     ___     ___    ___     ___     ___     ___     ___
-___     ___     ___     ___     ___    ___     ___     ___     ___     &kp F
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
 ___     ___     ___     ___     ___    ___     ___     ___     ___     &kp I
                         ___     ___    ___     ___
 )
