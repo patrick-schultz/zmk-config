@@ -101,7 +101,6 @@ ZMK_BEHAVIOR(hrm_a, hold_tap,
   bindings = <&kp>, <&ak_A>;
 )
 MAKE_HRM(hrm_e, &kp, &ak_E, KEYS_L KEYS_T)
-MAKE_HRM(hrm_i, &kp, &ak_I, KEYS_L KEYS_T)
 
 /* Caps-word, num-word and smart-mouse */
 
@@ -219,7 +218,7 @@ ZMK_COMBO(combo_esc, &kp ESC,          RM1 RM2, ALL, COMBO_TERM_FAST)
 
 // glyph combos
 
-ZMK_COMBO(combo_qu, &lk_qu Q Q,      LT3 LT1, ALPHA_ALL, 70)
+ZMK_COMBO(combo_qu, &lk_qu,      LT3 LT1, ALPHA_ALL, 70)
 ZMK_COMBO(combo_z, &kp Z,            LT4 LT3, ALPHA_ALL, COMBO_TERM_SLOW)
 
 ZMK_COMBO(combo_colon, &kp COLON,         RT1 RT3, ALPHA_ALL, COMBO_TERM_SLOW)
@@ -425,18 +424,18 @@ ZMK_MACRO_FAST(ak_lg, <&kp BSPC &kp L &kp G>)
     bindings = <HOLD>, <TAP>; \
 )
 
-ZMK_MACRO_FAST(Qu,
-    <&macro_tap &kp Q>
-    , <&macro_release &kp LSHFT &kp RSHFT>
-    , <&macro_tap &kp U>
-)
+ZMK_MACRO_FAST(lk_qu,
+    <&macro_tap &kp Q>,
+    <&macro_press &lk_qu_u U 0>,
+    <&macro_pause_for_release>,
+    <&macro_release &lk_qu_u U 0>)
 // LK(lk_qu, &kp, &Qu)
 // only add the 'u' when rolling onto another key
 // FIXME: not working
-ZMK_BEHAVIOR(lk_qu, hold_tap,
+ZMK_BEHAVIOR(lk_qu_u, hold_tap,
     flavor = "tap-unless-interrupted";
     tapping-term-ms = <500>;
-    bindings = <&Qu>, <&kp>;
+    bindings = <&kp>, <&none>;
 )
 
 // keymap
