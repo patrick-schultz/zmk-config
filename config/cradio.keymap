@@ -54,11 +54,12 @@
 #define l_akO 6
 #define l_akU 7
 #define l_akIY 8
-#define NUM 9
-#define EXT 10
-#define FN 11
-#define l_camel 12
-#define l_snake 13
+#define l_camel 9
+#define l_snake 10
+#define NUM 11
+#define EXT 12
+#define FN 13
+#define ALPHA_ALL ALPHA l_akG l_akB l_akM l_akE l_akA l_akO l_akU l_akIY
 
 /* Homerow mods */
 
@@ -187,7 +188,6 @@ ZMK_MACRO_FAST(pascal_case,
 #define COMBO_TERM 40
 #define COMBO_TERM_FAST 30
 #define COMBO_TERM_SLOW 40
-#define ALPHA_ALL ALPHA l_akA l_akE l_akO l_akU
 
 // h-digraph combos
 
@@ -506,6 +506,20 @@ ___     ___     ___     ___     ___    ___     ___     ___     ___     &kp I
                         ___     ___    ___     ___
 )
 
+ZMK_LAYER(l_camel,
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+                   &kp K_CANCEL ___  &long_sticky LSHFT  ___
+)
+
+ZMK_LAYER(l_snake,
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+___     ___     ___     ___     ___    ___     ___     ___     ___     ___
+                   &kp K_CANCEL ___  &kp UNDER ___
+)
+
 ZMK_LAYER(num_layer,
 &kp CARET  &kp LT           &kp GT          &kp DOLLAR        &kp AMPS     ___       &kp N7            &kp N8          &kp N9           XXX
 &kp HASH   &hml LALT MINUS  &hml LCMD PLUS  &hml LSHFT EQUAL  &kp PIPE     &kp DOT   &hmr RSHFT N4     &hmr RCMD N5    &hmr RALT N6     &kp RCTRL
@@ -526,18 +540,4 @@ XXX        &kp C_PREV  &kp C_PP      &kp C_NEXT    &bootloader    &bootloader  &
 &kp LCTRL  &kp LALT    &kp LCMD      &kp LSHFT     &sys_reset     &sys_reset   &kp F4  &kp F5  &kp F6  &kp F11
 XXX        &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  XXX            XXX          &kp F1  &kp F2  &kp F3  &kp F10
                                      ___           ___            ___          ___   
-)
-
-ZMK_LAYER(l_camel,
-___     ___     ___     ___     ___    ___     ___     ___     ___     ___
-___     ___     ___     ___     ___    ___     ___     ___     ___     ___
-___     ___     ___     ___     ___    ___     ___     ___     ___     ___
-                   &kp K_CANCEL ___  &long_sticky LSHFT  ___
-)
-
-ZMK_LAYER(l_snake,
-___     ___     ___     ___     ___    ___     ___     ___     ___     ___
-___     ___     ___     ___     ___    ___     ___     ___     ___     ___
-___     ___     ___     ___     ___    ___     ___     ___     ___     ___
-                   &kp K_CANCEL ___  &kp UNDER ___
 )
