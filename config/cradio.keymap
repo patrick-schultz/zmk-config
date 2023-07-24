@@ -236,20 +236,20 @@ ZMK_COMBO(combo_mdash, &kp LA(LS(MINUS)), RB0 RB2, ALPHA_ALL, COMBO_TERM_SLOW) /
 
 ZMK_COMBO(pnI, &typePnI,          RM3 RM4, ALPHA_ALL, COMBO_TERM_FAST) // "I "
 
-ZMK_COMBO(pnIm, &typePnIm,        RM3 LT2, ALPHA_ALL, COMBO_TERM_FAST) // "I'm "
-ZMK_COMBO(pnIll, &typePnIll,      RM3 LB2, ALPHA_ALL, COMBO_TERM_FAST) // "I'll "
-ZMK_COMBO(pnId, &typePnId,        RM3 LB1, ALPHA_ALL, COMBO_TERM_FAST) // "I'd "
-ZMK_COMBO(pnIve, &typePnIve,      RM3 LB0, ALPHA_ALL, COMBO_TERM_FAST) // "I've "
+ZMK_COMBO(pnIm, &typePnIm,        RM3 LT2, ALPHA_ALL, COMBO_TERM_SLOW) // "I'm "
+ZMK_COMBO(pnIll, &typePnIll,      RM3 LB2, ALPHA_ALL, COMBO_TERM_SLOW) // "I'll "
+ZMK_COMBO(pnId, &typePnId,        RM3 LB1, ALPHA_ALL, COMBO_TERM_SLOW) // "I'd "
+ZMK_COMBO(pnIve, &typePnIve,      RM3 LB0, ALPHA_ALL, COMBO_TERM_SLOW) // "I've "
 
-ZMK_COMBO(pnYoure, &typePnYoure,  RB3 LH0, ALPHA_ALL, COMBO_TERM_FAST) // "You're "
-ZMK_COMBO(pnYoull, &typePnYoull,  RB3 LB2, ALPHA_ALL, COMBO_TERM_FAST) // "You'll "
-ZMK_COMBO(pnYoud, &typePnYoud,    RB3 LB1, ALPHA_ALL, COMBO_TERM_FAST) // "You'd "
-ZMK_COMBO(pnYouve, &typePnYouve,  RB3 LB0, ALPHA_ALL, COMBO_TERM_FAST) // "You've "
+ZMK_COMBO(pnYoure, &typePnYoure,  RB3 LH0, ALPHA_ALL, COMBO_TERM_SLOW) // "You're "
+ZMK_COMBO(pnYoull, &typePnYoull,  RB3 LB2, ALPHA_ALL, COMBO_TERM_SLOW) // "You'll "
+ZMK_COMBO(pnYoud, &typePnYoud,    RB3 LB1, ALPHA_ALL, COMBO_TERM_SLOW) // "You'd "
+ZMK_COMBO(pnYouve, &typePnYouve,  RB3 LB0, ALPHA_ALL, COMBO_TERM_SLOW) // "You've "
 
-ZMK_COMBO(pnWere, &typePnWere,    LT4 LH0, ALPHA_ALL, COMBO_TERM_FAST) // "We're "
-ZMK_COMBO(pnWell, &typePnWell,    LT4 LT2, ALPHA_ALL, COMBO_TERM_FAST) // "We'll "
-ZMK_COMBO(pnWed, &typePnWed,      LT4 LT1, ALPHA_ALL, COMBO_TERM_FAST) // "We'd "
-ZMK_COMBO(pnWeve, &typePnWeve,    LT4 LT0, ALPHA_ALL, COMBO_TERM_FAST) // "We've "
+ZMK_COMBO(pnWere, &typePnWere,    LT4 LH0, ALPHA_ALL, COMBO_TERM_SLOW) // "We're "
+ZMK_COMBO(pnWell, &typePnWell,    LT4 LT2, ALPHA_ALL, COMBO_TERM_SLOW) // "We'll "
+ZMK_COMBO(pnWed, &typePnWed,      LT4 LT1, ALPHA_ALL, COMBO_TERM_SLOW) // "We'd "
+ZMK_COMBO(pnWeve, &typePnWeve,    LT4 LT0, ALPHA_ALL, COMBO_TERM_SLOW) // "We've "
 
 
 // macros for h-digraphs
