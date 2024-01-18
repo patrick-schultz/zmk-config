@@ -106,7 +106,7 @@ MAKE_HRM(hrm_e, &kp, &ak_E, KEYS_L KEYS_T)
 
 // tap: sticky-shift | shift + tap/ double-tap: caps-word | hold: shift
 ZMK_BEHAVIOR(smart_shft, mod_morph,
-    bindings = <&sk RSHFT>, <&caps_word>;
+    bindings = <&sk LSHFT>, <&caps_word>;
     mods = <(MOD_LSFT)>;
 )
 &caps_word {  // mods deactivate caps-word, requires PR #1441
@@ -163,19 +163,19 @@ ZMK_BEHAVIOR(camel_case, caps_word,
     layers = <l_camel>;
     ignore-alphas;
     ignore-numbers;
-    continue-list = <BSPC DEL UNDER MINUS FSLH>;
+    continue-list = <BSPC DEL LSHFT UNDER MINUS FSLH>;
 )
 ZMK_BEHAVIOR(snake_case, caps_word,
     layers = <l_snake>;
     ignore-alphas;
     ignore-numbers;
-    continue-list = <BSPC DEL UNDER MINUS FSLH>;
+    continue-list = <BSPC DEL LSHFT UNDER MINUS FSLH>;
 )
 ZMK_BEHAVIOR(scream_case, caps_word,
     mods = <MOD_LSFT>;
     ignore-alphas;
     ignore-numbers;
-    continue-list = <BSPC DEL UNDER MINUS FSLH>;
+    continue-list = <BSPC DEL LSHFT UNDER MINUS FSLH>;
 )
 ZMK_MACRO_FAST(pascal_case,
     <&camel_case &long_sticky LSHFT>
