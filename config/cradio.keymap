@@ -106,7 +106,7 @@ MAKE_HRM(hrm_e, &kp, &ak_E, KEYS_L KEYS_T)
 
 // tap: sticky-shift | shift + tap/ double-tap: caps-word | hold: shift
 ZMK_BEHAVIOR(smart_shft, mod_morph,
-    bindings = <&sk LSHFT>, <&caps_word>;
+    bindings = <&sk RSHFT>, <&caps_word>;
     mods = <(MOD_LSFT)>;
 )
 &caps_word {  // mods deactivate caps-word, requires PR #1441
@@ -163,19 +163,19 @@ ZMK_BEHAVIOR(camel_case, caps_word,
     layers = <l_camel>;
     ignore-alphas;
     ignore-numbers;
-    continue-list = <BSPC DEL LSHFT UNDER MINUS FSLH>;
+    continue-list = <BSPC DEL UNDER MINUS FSLH>;
 )
 ZMK_BEHAVIOR(snake_case, caps_word,
     layers = <l_snake>;
     ignore-alphas;
     ignore-numbers;
-    continue-list = <BSPC DEL LSHFT UNDER MINUS FSLH>;
+    continue-list = <BSPC DEL UNDER MINUS FSLH>;
 )
 ZMK_BEHAVIOR(scream_case, caps_word,
     mods = <MOD_LSFT>;
     ignore-alphas;
     ignore-numbers;
-    continue-list = <BSPC DEL LSHFT UNDER MINUS FSLH>;
+    continue-list = <BSPC DEL UNDER MINUS FSLH>;
 )
 ZMK_MACRO_FAST(pascal_case,
     <&camel_case &long_sticky LSHFT>
@@ -442,7 +442,7 @@ ZMK_BEHAVIOR(lk_qu_u, hold_tap,
 
 ZMK_LAYER(default_layer,
 &kp X         &kp W        &ak_M        &ak_G                &kp J        &bspc_del      &DotColn        &SlshStar      &DqtLbkt     &SqtRbkt
-&hml LCTRL S  &hml LALT C  &hml LCMD N  &hm_shift_l LSHFT T  &kp K        &CmmaSemi      &hrm_a RSHFT A  &hrm_e RCMD E  &hmr RALT I  &hmr RCTRL H
+&hml LCTRL S  &hml LALT C  &hml LCMD N  &hm_shift_l LSHFT T  &kp K        &CmmaSemi      &hrm_a LSHFT A  &hrm_e RCMD E  &hmr RALT I  &hmr RCTRL H
 &ak_B         &kp P        &kp L        &kp D                &kp V        &MinusPlus     &ak_U           &ak_O          &ak_Y        &kp F
                                         &smart_case          &lt NUM R    &lt EXT SPACE  &lt FN RET 
 )
@@ -537,5 +537,5 @@ ZMK_LAYER(fn_layer,
 XXX        &kp C_PREV  &kp C_PP      &kp C_NEXT    &bootloader    &bootloader  &kp F7  &kp F8  &kp F9  &kp F12
 &kp LCTRL  &kp LALT    &kp LCMD      &kp LSHFT     &sys_reset     &sys_reset   &kp F4  &kp F5  &kp F6  &kp F11
 XXX        &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  XXX            XXX          &kp F1  &kp F2  &kp F3  &kp F10
-                                     ___           ___            ___          ___   
+                                     &kp K_CANCEL  ___            ___          ___   
 )
