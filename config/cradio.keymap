@@ -187,6 +187,7 @@ ZMK_MACRO_FAST(pascal_case,
 #define COMBO_TERM 40
 #define COMBO_TERM_FAST 30
 #define COMBO_TERM_SLOW 40
+#define COMBO_TERM_VERT 70
 
 // h-digraph combos
 
@@ -215,11 +216,14 @@ ZMK_COMBO(pste, &kp LG(V),       LB2 LB1,     ALL, COMBO_TERM_FAST)
 
 ZMK_COMBO(combo_capsword, &caps_word,  LM1 RM1, ALL, COMBO_TERM_SLOW)
 ZMK_COMBO(combo_esc, &kp ESC,          RM1 RM2, ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_esc_vert, &kp ESC,     RT1 RM1, ALL, COMBO_TERM_VERT)
 
 // glyph combos
 
 ZMK_COMBO(combo_qu, &lk_qu,      LT3 LT1, ALPHA_ALL, 70)
-ZMK_COMBO(combo_z, &kp Z,            LT4 LT3, ALPHA_ALL, COMBO_TERM_SLOW)
+ZMK_COMBO(combo_z, &kp Z,        LT4 LT3, ALPHA_ALL, COMBO_TERM_SLOW)
+ZMK_COMBO(combo_qu_vert, &lk_qu, LT3 LM3, ALPHA_ALL, COMBO_TERM_VERT)
+ZMK_COMBO(combo_z_vert, &kp Z,   LT4 LM4, ALPHA_ALL, COMBO_TERM_VERT)
 
 ZMK_COMBO(combo_colon, &kp COLON,         RT1 RT3, ALPHA_ALL, COMBO_TERM_SLOW)
 ZMK_COMBO(combo_excl, &kp EXCL,           RT1 RT2, ALPHA_ALL, COMBO_TERM_FAST)

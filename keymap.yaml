@@ -62,7 +62,7 @@ layers:
        Reset, F4, F5, F6, F11]
     - [null, Mute, Vol Dn, Vol Up, null,
        null, F1, F2, F3, F10]
-    - [null, null, null, {t: Fn, type: held}]
+    - [cancel, null, null, {t: Fn, type: held}]
 
 # adaptives:
 # gm -> gl
