@@ -279,47 +279,6 @@ ZMK_MACRO_FAST(Ph,
     , <&macro_tap &kp H>
 )
 
-// macros for pronouns
-
-ZMK_MACRO_FAST(typePnI, <&kp LS(I) &kp SPACE>)
-ZMK_MACRO_FAST(typePnIm, <&kp LS(I) &kp APOS &kp M &kp SPACE>)
-ZMK_MACRO_FAST(typePnIll, <&kp LS(I) &kp APOS &kp L &kp L &kp SPACE>)
-ZMK_MACRO_FAST(typePnId, <&kp LS(I) &kp APOS &kp D &kp SPACE>)
-ZMK_MACRO_FAST(typePnIve, <&kp LS(I) &kp APOS &kp V &kp E &kp SPACE>)
-ZMK_MACRO_FAST(typePnYoure,
-    <&macro_tap &kp Y>,
-    <&macro_release &kp LSHFT &kp RSHFT>,
-    <&macro_tap &kp O &kp U &kp APOS &kp R &kp E &kp SPACE>)
-ZMK_MACRO_FAST(typePnYoull,
-    <&macro_tap &kp Y>,
-    <&macro_release &kp LSHFT &kp RSHFT>,
-    <&macro_tap &kp O &kp U &kp APOS &kp L &kp L &kp SPACE>)
-ZMK_MACRO_FAST(typePnYoud,
-    <&macro_tap &kp Y>,
-    <&macro_release &kp LSHFT &kp RSHFT>,
-    <&macro_tap &kp O &kp U &kp APOS &kp D &kp SPACE>)
-ZMK_MACRO_FAST(typePnYouve,
-    <&macro_tap &kp Y>,
-    <&macro_release &kp LSHFT &kp RSHFT>,
-    <&macro_tap &kp O &kp U &kp APOS &kp V &kp E &kp SPACE>)
-ZMK_MACRO_FAST(typePnWere,
-    <&macro_tap &kp W>,
-    <&macro_release &kp LSHFT &kp RSHFT>,
-    <&macro_tap &kp E &kp APOS &kp R &kp E &kp SPACE>)
-ZMK_MACRO_FAST(typePnWell,
-    <&macro_tap &kp W>,
-    <&macro_release &kp LSHFT &kp RSHFT>,
-    <&macro_tap &kp E &kp APOS &kp L &kp L &kp SPACE>)
-ZMK_MACRO_FAST(typePnWed,
-    <&macro_tap &kp W>,
-    <&macro_release &kp LSHFT &kp RSHFT>,
-    <&macro_tap &kp E &kp APOS &kp D &kp SPACE>)
-ZMK_MACRO_FAST(typePnWeve,
-    <&macro_tap &kp W>,
-    <&macro_release &kp LSHFT &kp RSHFT>,
-    <&macro_tap &kp E &kp APOS &kp V &kp E &kp SPACE>)
-
-
 /* Mod morphs */
 
 ZMK_BEHAVIOR(CmmaSemi, mod_morph,
