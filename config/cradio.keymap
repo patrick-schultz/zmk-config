@@ -59,7 +59,7 @@
 #define NUM 11
 #define EXT 12
 #define FN 13
-#define ALPHA_ALL ALPHA l_akG l_akB l_akM l_akE l_akA l_akO l_akU l_akY
+#define ALPHA_ALL ALPHA l_akG l_akB l_akM l_akE l_akA l_akO l_akU l_akY l_camel l_snake
 
 /* Homerow mods */
 
@@ -141,6 +141,8 @@ ZMK_BEHAVIOR(long_sticky, sticky_key,
     release-after-ms = <5000>;
     quick-release;)
 
+// Smart case
+
 ZMK_BEHAVIOR(smart_case, mod_morph,
     bindings = <&smart_case2>, <&camel_pascal>;
     mods = <(MOD_RGUI)>;
@@ -180,6 +182,7 @@ ZMK_BEHAVIOR(scream_case, caps_word,
 ZMK_MACRO_FAST(pascal_case,
     <&camel_case &long_sticky LSHFT>
 )
+
 
 /* Combos */
 
