@@ -102,7 +102,21 @@ ZMK_BEHAVIOR(hrm_a, hold_tap,
 )
 MAKE_HRM(hrm_e, &kp, &ak_E, KEYS_L KEYS_T)
 
-/* Caps-word, num-word and smart-mouse */
+// Smart case
+
+ZMK_BEHAVIOR(smart_case, mod_morph,
+    bindings = <&smart_case2>, <&camel_pascal>;
+    mods = <(MOD_RGUI)>;
+)
+ZMK_BEHAVIOR(smart_case2, mod_morph,
+    bindings = <&smart_case3>, <&scream_smart_case>;
+    mods = <(MOD_RSFT|MOD_LSFT)>;
+)
+ZMK_MACRO_FAST(scream_smart_case, <&scream_case &smart_case3>)
+ZMK_BEHAVIOR(smart_case3, mod_morph,
+    bindings = <&smart_shft>, <&snake_case>;
+    mods = <(MOD_RALT)>;
+)
 
 // tap: sticky-shift | shift + tap/ double-tap: caps-word | hold: shift
 ZMK_BEHAVIOR(smart_shft, mod_morph,
@@ -112,6 +126,34 @@ ZMK_BEHAVIOR(smart_shft, mod_morph,
 &caps_word {  // mods deactivate caps-word, requires PR #1441
     /delete-property/ ignore-modifiers;
 };
+
+ZMK_BEHAVIOR(camel_pascal, mod_morph,
+    bindings = <&camel_case>, <&pascal_case>;
+    mods = <(MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(camel_case, caps_word,
+    layers = <l_camel>;
+    ignore-alphas;
+    ignore-numbers;
+    continue-list = <BSPC DEL LSHFT UNDER MINUS FSLH>;
+)
+ZMK_BEHAVIOR(snake_case, caps_word,
+    layers = <l_snake>;
+    ignore-alphas;
+    ignore-numbers;
+    continue-list = <BSPC DEL LSHFT UNDER MINUS FSLH>;
+)
+ZMK_BEHAVIOR(scream_case, caps_word,
+    mods = <MOD_LSFT>;
+    ignore-alphas;
+    ignore-numbers;
+    continue-list = <BSPC DEL LSHFT UNDER MINUS FSLH>;
+)
+ZMK_MACRO_FAST(pascal_case,
+    <&camel_case &long_sticky LSHFT>
+)
+
+// Num word
 
 // tap: num-word | double-tap: sticky num-layer | hold: num-layer
 #define SMART_NUM &smart_num NUM 0
@@ -140,49 +182,6 @@ ZMK_BEHAVIOR(long_sticky, sticky_key,
     bindings = <&kp>;
     release-after-ms = <5000>;
     quick-release;)
-
-// Smart case
-
-ZMK_BEHAVIOR(smart_case, mod_morph,
-    bindings = <&smart_case2>, <&camel_pascal>;
-    mods = <(MOD_RGUI)>;
-)
-ZMK_BEHAVIOR(smart_case2, mod_morph,
-    bindings = <&smart_case3>, <&scream_smart_case>;
-    mods = <(MOD_RSFT|MOD_LSFT)>;
-)
-ZMK_MACRO_FAST(scream_smart_case, <&scream_case &smart_case3>)
-ZMK_BEHAVIOR(smart_case3, mod_morph,
-    bindings = <&smart_shft>, <&snake_case>;
-    mods = <(MOD_RALT)>;
-)
-
-ZMK_BEHAVIOR(camel_pascal, mod_morph,
-    bindings = <&camel_case>, <&pascal_case>;
-    mods = <(MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(camel_case, caps_word,
-    layers = <l_camel>;
-    ignore-alphas;
-    ignore-numbers;
-    continue-list = <BSPC DEL LSHFT UNDER MINUS FSLH>;
-)
-ZMK_BEHAVIOR(snake_case, caps_word,
-    layers = <l_snake>;
-    ignore-alphas;
-    ignore-numbers;
-    continue-list = <BSPC DEL LSHFT UNDER MINUS FSLH>;
-)
-ZMK_BEHAVIOR(scream_case, caps_word,
-    mods = <MOD_LSFT>;
-    ignore-alphas;
-    ignore-numbers;
-    continue-list = <BSPC DEL LSHFT UNDER MINUS FSLH>;
-)
-ZMK_MACRO_FAST(pascal_case,
-    <&camel_case &long_sticky LSHFT>
-)
-
 
 /* Combos */
 
