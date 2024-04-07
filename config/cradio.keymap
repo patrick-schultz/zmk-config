@@ -88,14 +88,7 @@ ZMK_BEHAVIOR(hm_shift_l, hold_tap,
   quick-tap-ms = <QUICK_TAP_MS>; // repeat on tap-hold
   hold-trigger-key-positions = <KEYS_R KEYS_T>;
   bindings = <&kp>, <&kp>;
-)
-
-ZMK_BEHAVIOR(hm_shift_r, hold_tap,
-  flavor = "balanced";
-  tapping-term-ms = <HM_TAPPING_TERM_FAST>;
-  quick-tap-ms = <QUICK_TAP_MS>; // repeat on tap-hold
-  hold-trigger-key-positions = <KEYS_L KEYS_T>;
-  bindings = <&kp>, <&kp>;
+  hold-trigger-on-release;
 )
 
 ZMK_BEHAVIOR(hrm_a, hold_tap,
@@ -104,14 +97,15 @@ ZMK_BEHAVIOR(hrm_a, hold_tap,
   quick-tap-ms = <QUICK_TAP_MS>; // repeat on tap-hold
   hold-trigger-key-positions = <KEYS_L KEYS_T>;
   bindings = <&kp>, <&ak_A>;
+  hold-trigger-on-release;
 )
 MAKE_HRM(hrm_e, &kp, &ak_E, KEYS_L KEYS_T)
 
 // Smart case
 
 // tap: sticky-shift | shift + tap/ double-tap: caps-word | hold: shift
-// cmd + tap: camelCase | shift + cmd + tap: pascalCase
-// alt + tap: snake_case | 
+// cmd + tap: camelCase | shift + cmd + tap: PascalCase
+// alt + tap: snake_case | shift + alt + tap: SCREAM_SNAKE_CASE
 ZMK_BEHAVIOR(smart_case, mod_morph,
     bindings = <&smart_case2>, <&camel_pascal>;
     mods = <(MOD_RGUI)>;
