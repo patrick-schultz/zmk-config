@@ -48,6 +48,12 @@ ZMK_BEHAVIOR(long_sticky, sticky_key,
     release-after-ms = <5000>;
     quick-release;)
 
+ZMK_BEHAVIOR(layer_sticky, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <LAYER_TAPPING_TERM>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&mo>, <&long_sticky>;)
+
 /* Layers */
 
 #define ALPHA 0
@@ -469,14 +475,14 @@ ZMK_LAYER(l_camel,
 ___     ___     ___     ___     ___    ___     ___     ___     ___     ___
 ___     ___     ___     ___     ___    ___     ___     ___     ___     ___
 ___     ___     ___     ___     ___    ___     ___     ___     ___     ___
-                   &kp K_CANCEL ___  &long_sticky LSHFT  ___
+                   &kp K_CANCEL ___  &layer_sticky EXT LSHFT  ___
 )
 
 ZMK_LAYER(l_snake,
 ___     ___     ___     ___     ___    ___     ___     ___     ___     ___
 ___     ___     ___     ___     ___    ___     ___     ___     ___     ___
 ___     ___     ___     ___     ___    ___     ___     ___     ___     ___
-                   &kp K_CANCEL ___  &kp UNDER ___
+                   &kp K_CANCEL ___  &lt EXT UNDER ___
 )
 
 ZMK_LAYER(num_layer,
