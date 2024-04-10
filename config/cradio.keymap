@@ -142,19 +142,19 @@ ZMK_BEHAVIOR(camel_case, caps_word,
     layers = <l_camel>;
     ignore-alphas;
     ignore-numbers;
-    continue-list = <BSPC DEL LSHFT UNDER MINUS FSLH>;
+    continue-list = <BSPC DEL UNDER MINUS FSLH>;
 )
 ZMK_BEHAVIOR(snake_case, caps_word,
     layers = <l_snake>;
     ignore-alphas;
     ignore-numbers;
-    continue-list = <BSPC DEL LSHFT UNDER MINUS FSLH>;
+    continue-list = <BSPC DEL UNDER MINUS FSLH>;
 )
 ZMK_BEHAVIOR(scream_case, caps_word,
     mods = <MOD_LSFT>;
     ignore-alphas;
     ignore-numbers;
-    continue-list = <BSPC DEL LSHFT UNDER MINUS FSLH>;
+    continue-list = <BSPC DEL UNDER MINUS FSLH>;
 )
 ZMK_MACRO_FAST(pascal_case,
     <&camel_case &long_sticky LSHFT>
