@@ -285,26 +285,14 @@ ZMK_MACRO_FAST(Ph,
 
 /* Mod morphs */
 
-ZMK_BEHAVIOR(ShftCmma, mod_morph,
+ZMK_BEHAVIOR(CmmaSemi, mod_morph,
     mods = <(MOD_LSFT|MOD_RSFT)>;
-    bindings = <&sk LSHFT>, <&kp COMMA>;
+    bindings = <&kp COMMA>, <&typeSemi>;
 )
-ZMK_BEHAVIOR(SpcCmma, mod_morph,
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-    bindings = <&kp SPACE>, <&typeCmmaSpc>;
-)
-ZMK_BEHAVIOR(typeCmmaSpc, macro,
+ZMK_BEHAVIOR(typeSemi, macro,
     bindings = <&macro_release &kp LSHFT>
-            , <&macro_tap &kp COMMA &kp SPACE>;
+            , <&macro_tap &kp SEMICOLON>;
 )
-// ZMK_BEHAVIOR(CmmaSemi, mod_morph,
-//     mods = <(MOD_LSFT|MOD_RSFT)>;
-//     bindings = <&kp COMMA>, <&typeSemi>;
-// )
-// ZMK_BEHAVIOR(typeSemi, macro,
-//     bindings = <&macro_release &kp LSHFT>
-//             , <&macro_tap &kp SEMICOLON>;
-// )
 ZMK_BEHAVIOR(DotColn, mod_morph,
     mods = <(MOD_LSFT|MOD_RSFT)>;
     bindings = <&kp DOT>, <&kp COLON>;
@@ -396,22 +384,13 @@ ZMK_BEHAVIOR(lk_qu_u, hold_tap,
     bindings = <&kp>, <&none>;
 )
 
-// Comma key is one-shot, shift; space key on shift-tap is ", "
-
-ZMK_BEHAVIOR(space, hold_tap,
-  flavor = "balanced";
-  tapping-term-ms = <LAYER_TAPPING_TERM>;
-  quick-tap-ms = <QUICK_TAP_MS>;
-  bindings = <&mo>, <&SpcCmma>;
-)
-
 // keymap
 
 ZMK_LAYER(default_layer,
 &kp X         &kp W        &ak_M        &ak_G                &kp J        &bspc_del      &DotColn        &SlshStar      &DqtLbkt     &SqtRbkt
-&hml LCTRL S  &hml LALT C  &hml LCMD N  &hm_shift_l LSHFT T  &kp K        &ShftCmma      &hrm_a RSHFT A  &hrm_e RCMD E  &hmr RALT I  &hmr RCTRL H
+&hml LCTRL S  &hml LALT C  &hml LCMD N  &hm_shift_l LSHFT T  &kp K        &CmmaSemi      &hrm_a RSHFT A  &hrm_e RCMD E  &hmr RALT I  &hmr RCTRL H
 &ak_B         &kp P        &kp L        &kp D                &kp V        &MinusPlus     &ak_U           &ak_O          &ak_Y        &kp F
-                                        &smart_case          &lt NUM R    &space EXT 0   &lt FN RET 
+                                        &smart_case          &lt NUM R    &lt EXT SPACE  &lt FN RET 
 )
 
 ZMK_LAYER(l_akG,
