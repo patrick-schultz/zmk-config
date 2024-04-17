@@ -88,26 +88,17 @@ ZMK_BEHAVIOR(layer_sticky, hold_tap,
 MAKE_HRM(hml, &kp, &kp, KEYS_R KEYS_T)
 MAKE_HRM(hmr, &kp, &kp, KEYS_L KEYS_T)
 
-ZMK_BEHAVIOR(hm_shift_l, hold_tap,
-  flavor = "balanced";
-  tapping-term-ms = <HM_TAPPING_TERM_FAST>;
-  quick-tap-ms = <QUICK_TAP_MS>; // repeat on tap-hold
-  hold-trigger-key-positions = <KEYS_R KEYS_T>;
-  bindings = <&kp>, <&kp>;
-  hold-trigger-on-release;
-)
-
-ZMK_BEHAVIOR(hrm_a, hold_tap,
-  flavor = "balanced";
-  tapping-term-ms = <HM_TAPPING_TERM_FAST>;
-  quick-tap-ms = <QUICK_TAP_MS>; // repeat on tap-hold
-  hold-trigger-key-positions = <KEYS_L KEYS_T>;
-  bindings = <&kp>, <&ak_A>;
-  hold-trigger-on-release;
-)
+MAKE_HRM(hrm_a, &kp, &ak_A, KEYS_L KEYS_T)
 MAKE_HRM(hrm_e, &kp, &ak_E, KEYS_L KEYS_T)
 
 // Smart case
+
+ZMK_BEHAVIOR(lt_oss, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <LAYER_TAPPING_TERM>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&mo>, <&smart_case>;
+)
 
 // tap: sticky-shift | shift + tap/ double-tap: caps-word | hold: shift
 // cmd + tap: camelCase | shift + cmd + tap: PascalCase
@@ -220,6 +211,7 @@ ZMK_COMBO(pste, &kp LG(V),       LB2 LB1,     ALL, COMBO_TERM_FAST)
 
 ZMK_COMBO(combo_esc, &hmr RG(RSHFT) ESC, RM1 RM2, ALL, COMBO_TERM_FAST)
 ZMK_COMBO(combo_esc_vert, &kp ESC,       RT1 RM1, ALL, COMBO_TERM_VERT)
+ZMK_COMBO(combo_ret, &hmr RG(RSHFT) RET, RB1 RB2, ALL, COMBO_TERM_FAST)
 
 // glyph combos
 
@@ -387,10 +379,10 @@ ZMK_BEHAVIOR(lk_qu_u, hold_tap,
 // keymap
 
 ZMK_LAYER(default_layer,
-&kp X         &kp W        &ak_M        &ak_G                &kp J        &bspc_del      &DotColn        &SlshStar      &DqtLbkt     &SqtRbkt
-&hml LCTRL S  &hml LALT C  &hml LCMD N  &hm_shift_l LSHFT T  &kp K        &CmmaSemi      &hrm_a RSHFT A  &hrm_e RCMD E  &hmr RALT I  &hmr RCTRL H
-&ak_B         &kp P        &kp L        &kp D                &kp V        &MinusPlus     &ak_U           &ak_O          &ak_Y        &kp F
-                                        &smart_case          &lt NUM R    &lt EXT SPACE  &lt FN RET 
+&kp X         &kp W        &ak_M        &ak_G          &kp J        &bspc_del      &DotColn        &SlshStar      &DqtLbkt     &SqtRbkt
+&hml LCTRL S  &hml LALT C  &hml LCMD N  &hml LSHFT T   &kp K        &CmmaSemi      &hrm_a RSHFT A  &hrm_e RCMD E  &hmr RALT I  &hmr RCTRL H
+&ak_B         &kp P        &kp L        &kp D          &kp V        &MinusPlus     &ak_U           &ak_O          &ak_Y        &kp F
+                                        &smart_case    &lt NUM R    &lt EXT SPACE  &lt_oss FN 0 
 )
 
 ZMK_LAYER(l_akG,

@@ -24,6 +24,7 @@ combos:
   - {p: [8, 9], k: '`', l: [Base]}
   - {p: [15, 16], k: ';', l: [Base]}
   - {p: [16, 17], k: 'Esc', l: [Base]}
+  - {p: [26, 27], k: 'Ret', l: [Base]}
   - {p: [26, 28], k: '_', l: [Base], a: 'bottom'}
   - {p: [27, 28], k: '=', l: [Base]}
 layers:
@@ -35,7 +36,7 @@ layers:
     - [B, P, L, D, V,
        {t: "-", s: "+"}, U, O, Y, F]
     - ["Smart Shift", {t: R, h: Num},
-       {t: ␣, h: Ext}, {t: Ret, h: Fn}]
+       {t: ␣, h: Ext}, {t: OSS, h: Fn}]
   Num:
     - ["^", "<", ">", "$", "&",
        null, 7, 8, 9, null]
